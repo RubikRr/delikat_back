@@ -21,6 +21,9 @@ Route::get('/greeting', function () {
     return 'Hello World';
 });
 
+Route::get('/erik',function(){
+    return 'erikdjil';
+});
 Route::get('/clear', function () {
     Artisan::call('cache:clear');
     Artisan::call('config:cache');
