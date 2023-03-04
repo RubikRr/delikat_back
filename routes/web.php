@@ -20,3 +20,12 @@ Route::get('/', function () {
 Route::get('/greeting', function () {
     return 'Hello World';
 });
+
+Route::get('/clear', function () {
+    Artisan::call('cache:clear');
+    Artisan::call('config:cache');
+    Artisan::call('view:clear');
+    Artisan::call('route:clear');
+
+    return "Кэш очищен.";
+});
