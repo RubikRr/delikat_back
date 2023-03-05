@@ -15,8 +15,10 @@ class ProductController extends Controller
             $description=$product->description;
             $img=$product->img;
             $price=$product->price;
-            dump($name." ". $description." ". $price." ".$img);//do something
+            //dump($name." ". $description." ". $price." ".$img);//do something
+            //dump($product);
         });
+        return $products;
     }
 
     public  function  Create(){
