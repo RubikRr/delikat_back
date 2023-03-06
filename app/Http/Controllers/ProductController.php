@@ -7,40 +7,52 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    public  function index(): Collection
+    public function index(): Collection
     {
 
         return Product::all();
     }
 
-    public  function  create(){
-        $products=[
+    public function create()
+    {
+        $products = [
             [
-                'name'=>"Фэри",
-                'description'=>"Средство для мытья посуды",
-                'img'=>"image1",
-                'price'=>57
+                'name' => "Фэри",
+                'description' => "Средство для мытья посуды",
+                'img' => "image1",
+                'price' => 57
 
             ],
             [
-                'name'=>"Шумовит",
-                'description'=>"Средство от жира",
-                'img'=>"image2",
-                'price'=>85
+                'name' => "Шумовит",
+                'description' => "Средство от жира",
+                'img' => "image2",
+                'price' => 85
 
             ],
             [
-                'name'=>"Бумага туалетная",
-                'description'=>"Рулон бумаги всегда нужен",
-                'img'=>"image3",
-                'price'=>37
+                'name' => "Бумага туалетная",
+                'description' => "Рулон бумаги всегда нужен",
+                'img' => "image3",
+                'price' => 37
             ]
         ];
-        foreach ($products as $product)
-        {
+        foreach ($products as $product) {
             Product::create($product);
         }
         dump("Create OK");
+    }
+
+    public function store()
+    {
+        $data=request()->validate([
+            'name'=>'string',
+            'description'=>'string',
+            'img'=>'string',
+            'price'=>'integer'
+        ]);
+        Product::create($data);
+        return redirect()->route("product.append");
     }
 
     public  function show(Product $product)//$id return Product::find($id)

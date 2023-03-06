@@ -2,19 +2,21 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\MainController;
 
-Route::get('/', function () {
-    return "Work Start";
-});
 
-Route::get('/greeting', function () {
-    return 'Hello World';
-});
+//работают
+Route::get('/main',[MainController::class,'index'])->name("main.index");
 
 
 Route::get("/products",[ProductController::class,'index']);
 Route::get('/products/create',[ProductController::class,'create']);
 Route::get('/products/show/{product}',[ProductController::class,'show']);
+
+//не работают
+Route::get("/main/create/product",[MainController::class,'createProduct'])->name("product.append");
+Route::post('/products',[ProductController::class,'store'])->name("product.store");
+
 //Route::get('/products/show/{product}/edit',[ProductController::class,'edit']);
 //Route::patch('/products/show/{product}',[ProductController::class,'update']);
 Route::get('/products/delete/{product}',[ProductController::class,'destroy']);
