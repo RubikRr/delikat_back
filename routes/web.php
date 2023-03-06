@@ -10,12 +10,13 @@ Route::get('/main',[MainController::class,'index'])->name("main.index");
 
 
 Route::get("/products",[ProductController::class,'index']);
-Route::get('/products/create',[ProductController::class,'create']);
+Route::get('/products/create',[ProductController::class,'create'])->name("product.create");
 Route::get('/products/show/{product}',[ProductController::class,'show']);
+Route::post('/products',[ProductController::class,'store'])->name("product.store");
 
 //не работают
-Route::get("/main/create/product",[MainController::class,'createProduct'])->name("product.append");
-Route::post('/products',[ProductController::class,'store'])->name("product.store");
+
+
 
 //Route::get('/products/show/{product}/edit',[ProductController::class,'edit']);
 //Route::patch('/products/show/{product}',[ProductController::class,'update']);

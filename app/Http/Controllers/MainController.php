@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class MainController extends Controller
@@ -10,8 +11,5 @@ class MainController extends Controller
         return view("layouts.main");
     }
 
-    public function createProduct()
-    {
-        return view('products.create');
-    }
+
 }

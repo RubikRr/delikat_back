@@ -11,7 +11,7 @@
 <div>
     <nav>
         <ul>
-            <li><a href="{{route("product.append")}}">Create</a></li>
+            <li><a href="{{route("product.create")}}">Create</a></li>
         </ul>
     </nav>
 </div>

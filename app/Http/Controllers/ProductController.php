@@ -15,32 +15,9 @@ class ProductController extends Controller
 
     public function create()
     {
-        $products = [
-            [
-                'name' => "Фэри",
-                'description' => "Средство для мытья посуды",
-                'img' => "image1",
-                'price' => 57
 
-            ],
-            [
-                'name' => "Шумовит",
-                'description' => "Средство от жира",
-                'img' => "image2",
-                'price' => 85
 
-            ],
-            [
-                'name' => "Бумага туалетная",
-                'description' => "Рулон бумаги всегда нужен",
-                'img' => "image3",
-                'price' => 37
-            ]
-        ];
-        foreach ($products as $product) {
-            Product::create($product);
-        }
-        dump("Create OK");
+        return view('products.create');
     }
 
     public function store()
@@ -52,7 +29,7 @@ class ProductController extends Controller
             'price'=>'integer'
         ]);
         Product::create($data);
-        return redirect()->route("product.append");
+        return redirect()->route("product.create");
     }
 
     public  function show(Product $product)//$id return Product::find($id)
@@ -72,7 +49,9 @@ class ProductController extends Controller
         dump($product);
         dump('Restore OK');
     }
+   
 }
+
 //    public function  edit(Product $product)
 //    {
 //        return $product;
