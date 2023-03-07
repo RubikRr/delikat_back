@@ -1,6 +1,6 @@
 @extends("layouts.main")
 @section("product")
-    <div>{{$product->name}} </div>
+    <div >{{$product->name}} </div>
     <div>{{$product->description}} </div>
     <div>{{$product->img}} </div>
     <div>   {{$product->price}} </div>
