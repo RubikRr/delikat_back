@@ -13,10 +13,13 @@ class ProductController extends Controller
         return Product::all();
     }
 
+    public function ShowAll(){
+        $products=$this->index();
+        return view("products.showAll",compact("products"));
+    }
+
     public function create()
     {
-
-
         return view('products.create');
     }
 
@@ -35,32 +38,35 @@ class ProductController extends Controller
     public  function show(Product $product)//$id return Product::find($id)
     {
         //dump($product);
-        return $product;
+        return view("products.show",compact("product"));
+    }
+    public function  edit(Product $product)
+    {
+        return view("products.edit",compact("product"));
     }
 
-    public function Destroy(Product $product){
+    public  function  update(Product $product){
+
+        $data=request()->validate([
+            "name"=>"string",
+            "description"=>"string",
+            "img"=>"string",
+            "price"=>"integer"
+        ]);
+        $product->update($data);
+        return redirect()->route("product.show",$product->id);
+    }
+    public function destroy(Product $product){
         $product->delete();
-        //dump($product);
-        dump('Delete OK');
+        return redirect()->route("product.index");
     }
     public function restore($id){
         $product=Product::withTrashed()->find($id);
         $product->restore();
-        dump($product);
-        dump('Restore OK');
+        return redirect()->route("product.index");
     }
-   
+
 }
 
-//    public function  edit(Product $product)
-//    {
-//        return $product;
-//    }
 
-//    public  function  update(Product $product){
-//        $product->update([
-//            'name'=>"Порошок",
-//            'price'=>1000,
-//        ]);
-//        dump("Update OK");
-//    }
+

@@ -1,5 +1,5 @@
 @extends("layouts.main")
-@section("store")
+@section("product")
 <div>
     <form action="{{route("product.store")}}" method="post">
         @csrf
@@ -20,7 +20,7 @@
             <input type="number" name="price"  placeholder="Number">
         </div>
 
-        <button type="submit">Submit</button>
+        <button type="submit">Создать</button>
     </form>
 </div>
 @endsection

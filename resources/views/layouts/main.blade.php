@@ -11,10 +11,11 @@
 <div>
     <nav>
         <ul>
-            <li><a href="{{route("product.create")}}">Create</a></li>
+            <li><a href="{{route("product.showAll")}}">Показать все</a></li>
+            <li><a href="{{route("product.create")}}">Создать</a></li>
         </ul>
     </nav>
 </div>
-@yield("store")
+@yield("product")
 </body>
 </html>
