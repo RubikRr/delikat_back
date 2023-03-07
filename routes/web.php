@@ -6,7 +6,7 @@ use App\Http\Controllers\MainController;
 
 
 //работают
-Route::get('/main',[MainController::class,'index'])->name("main.index");
+Route::get('/',[MainController::class,'index'])->name("main.index");
 
 
 Route::get("/products",[ProductController::class,'index'])->name("product.index");
