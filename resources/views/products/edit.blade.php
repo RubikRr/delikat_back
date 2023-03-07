@@ -21,7 +21,7 @@
                 <input type="number" name="price"  placeholder="Number" value="{{$product->price}}">
             </div>
 
-            <button type="submit">Изменить</button>
+            <button type="submit" class="button">Изменить</button>
         </form>
     </div>
 @endsection

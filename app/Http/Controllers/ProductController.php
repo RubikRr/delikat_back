@@ -7,9 +7,8 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    public function index(): Collection
+    public function index()
     {
-
         return Product::all();
     }
 
