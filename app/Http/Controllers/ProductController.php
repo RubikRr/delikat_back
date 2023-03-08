@@ -57,12 +57,12 @@ class ProductController extends Controller
     }
     public function destroy(Product $product){
         $product->delete();
-        return redirect()->route("product.index");
+        return redirect()->route("main.index");
     }
     public function restore($id){
         $product=Product::withTrashed()->find($id);
         $product->restore();
-        return redirect()->route("product.index");
+        return redirect()->route("product.showall");
     }
 
 }
