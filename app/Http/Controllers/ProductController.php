@@ -62,7 +62,7 @@ class ProductController extends Controller
     public function restore($id){
         $product=Product::withTrashed()->find($id);
         $product->restore();
-        return redirect()->route("product.showall");
+        return redirect()->route("product.showAll");
     }
 
 }

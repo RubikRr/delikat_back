@@ -1,5 +1,11 @@
-.product{
-
+.create{
+display: flex;
+}
+.create_left{
+float: left;
+}
+.create_right{
+    float: right;
 }
 *{
     font-family: "Arial Black";
@@ -7,42 +13,46 @@
 body{
     background-color: white;
 }
-input{
+input {
     width: 50%;
     padding: 12px 20px;
     margin: 15px 0;
-    border: thick double #32a1ce;
+    border: solid #32a1ce;
+
 }
+
+
 
 textarea {
     width: 100%;
     height: 100px;
     padding: 12px 20px;
     box-sizing: border-box;
-    border: thick double #32a1ce;
+    border: solid #32a1ce;
     border-radius: 4px;
     background-color: #f8f8f8;
     resize: none;
 }
 .button{
-    width: 100px;
+    width: 15%;
     height: 50px;
     margin-top:10px;
+    margin-right: 10px;
     color: white;
     text-align: center;
+    border: solid 2px  black;
+
 }
 .button_create{
-    background: green;
+    background: darkmagenta;
 }
 .button_delete{
-
     background: red;
-
 }
 .button_edit{
-    background: yellow;
-    color: black;
+    background: darkcyan;
 }
+
 
 .row {
     width: 100%;
@@ -57,16 +67,16 @@ textarea {
 
 a{
     text-decoration: none;
-
-
 }
 .a_product{
-
-    background-color:lightslategray;
+    background-color:cornflowerblue;
     margin: 10px;
-    border: solid ;
+    border: solid blue ;
     padding: 5px;
     text-align: center;
+}
+.my-block {
+    display: block;
 }
 li a {
     display: block;
@@ -78,23 +88,19 @@ li a {
 
 /* Change the link color to #111 (black) on hover */
 li a:hover {
-    background-color: #111;
+    background-color: darkblue;
 }
 
-.my-block {
-    display: block;
-}
-.my-block:hover {
-    border:1px solid red;
-}
+
 .menu{
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
+    background-color: blue;
     display: flex;
     justify-content: center;
 }
+
 
 

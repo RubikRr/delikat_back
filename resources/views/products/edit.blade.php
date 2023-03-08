@@ -10,21 +10,19 @@
             </div>
             <div class="product">
                 <div><label for="img">Картинка</label></div>
-                <div> <input type="text" name="img"   placeholder="Img" value="{{$product->img}}"></div>
+                <div> <input type="text" name="img"   placeholder="Img" autocomplete="off" value="{{$product->img}}"></div>
 
             </div>
             <div class="product">
                 <div><label for="price">Цена</label></div>
-                <div><input type="number" name="price"  placeholder="Number" value="{{$product->price}}"></div>
+                <div><input type="number" name="price"  placeholder="Number" autocomplete="off" value="{{$product->price}}"></div>
 
             </div>
             <div class="product">
                 <label for="description">Описание</label>
                 <textarea name="description"placeholder="Description">{{$product->description}}</textarea>
             </div>
-            <button type="submit" class="button button_edit">Принять изменения</button>
-
-
+            <input type="submit" class="button button_edit" value="Принять изменения">
         </form>
     </div>
 @endsection
