@@ -16,7 +16,6 @@
             <div class="product">
                 <div><label for="price">Цена</label></div>
                 <div><input type="number" name="price"  placeholder="Number"  value="{{$product->price}}"></div>
-
             </div>
             <div class="product">
                 <label for="description">Описание</label>

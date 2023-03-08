@@ -1,18 +1,8 @@
-.create{
-display: flex;
-}
-.create_left{
-float: left;
-}
-.create_right{
-    float: right;
-}
+
 *{
     font-family: "Arial Black";
 }
-body{
-    background-color: white;
-}
+
 input {
     width: 50%;
     padding: 12px 20px;
@@ -33,29 +23,11 @@ textarea {
     background-color: #f8f8f8;
     resize: none;
 }
-.button{
-    width: 15%;
-    height: 50px;
-    margin-top:10px;
-    margin-right: 10px;
-    color: white;
-    text-align: center;
-    border: solid 2px  black;
 
-}
-.button_create{
-    background: darkmagenta;
-}
-.button_delete{
-    background: red;
-}
-.button_edit{
-    background: darkcyan;
-}
 
 
 .row {
-    width: 100%;
+
     margin-top: 15px;
     margin-bottom: 15px;
     border: solid blue;
@@ -211,7 +183,9 @@ input {
 .btn {
     width: 100%;
     text-align: center;
-    margin: 20px;
+}
+.btn .btn_delete{
+    background: red;
 }
 
 button {
@@ -229,58 +203,9 @@ button:hover {
     background-color: #bf6516;
 }
 
-footer {
-    text-align: center;
-    font-size: 17px;
-    margin: 20px;
-}
 
-footer a {
-    color: #f39c12;
-    position: relative;
-    text-decoration: none;
-    font-weight: bold;
-}
 
-footer a:hover {
-    color: #f1c40f;
-}
 
-footer p {
-    margin: 0;
-    font-size: 17px;
-}
-
-@media only screen and (max-width: 768px) {
-    body{
-        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(https://wallpapercave.com/wp/Fdh76FQ.jpg) center no-repeat fixed;
-        background-size: cover;
-    }
-
-    h1 {
-        font-size: 2em;
-    }
-
-    .labels {
-        width: 100%;
-        text-align: left;
-    }
-    .input-tab {
-        width: 100%;
-        float: left;
-        margin-left: -10px;
-    }
-    .input-field {
-        width: 100%;
-    }
-    select {
-        width: 100%;
-    }
-    .btn {
-        width: 100%;
-        margin: auto;
-    }
-}
 
 
 

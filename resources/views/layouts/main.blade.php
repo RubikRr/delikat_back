@@ -10,7 +10,6 @@
 </head>
 <body link="white" vlink="white" alink="white">
     <nav>
-
         <ul class="menu" >
             <li ><a href="{{route("product.index")}}">JSON</a></li>
             <li><a href="{{route("main.index")}}">Главная</a></li>

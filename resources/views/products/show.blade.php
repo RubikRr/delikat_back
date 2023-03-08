@@ -7,14 +7,20 @@
     <div>
         <div >
             <form action="{{route("product.edit",$product->id)}}" method="get">
-                <input type="submit" class="button button_edit" value="Изменить">
+                <div class="btn">
+                    <input type="submit"  value="Изменить">
+                </div>
+
             </form>
         </div>
-        <div>
+        <div >
             <form action="{{route("product.delete",$product->id)}}" method="post">
                 @csrf
                 @method("delete")
-                <input type="submit" class="button button_delete" value="Удалить">
+                <div class="btn ">
+                    <input type="submit"  value="Удалить">
+                </div>
+
             </form>
         </div>
     </div>
