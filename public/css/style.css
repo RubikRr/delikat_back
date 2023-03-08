@@ -1,7 +1,12 @@
 .product{
 
 }
-
+*{
+    font-family: "Arial Black";
+}
+body{
+    background-color: white;
+}
 input{
     width: 50%;
     padding: 12px 20px;
@@ -20,40 +25,68 @@ textarea {
     resize: none;
 }
 .button{
-    width: 130px;
-    height: 30px;
-    background: black;
+    width: 100px;
+    height: 50px;
     margin-top:10px;
     color: white;
+    text-align: center;
 }
-.row:after {
-    content: "";
-    display: table;
-    clear: both;
+.button_create{
+    background: green;
 }
-.col-25 {
-    float: left;
-    width: 25%;
-    margin-top: 6px;
+.button_delete{
+
+    background: red;
+
+}
+.button_edit{
+    background: yellow;
+    color: black;
 }
 
-.col-75 {
-    float: left;
-    width: 75%;
-    margin-top: 6px;
+.row {
+
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border: solid blue;
+    border-radius: 4px;
+    padding: 12px 20px;
+    background-color: white;
+
 }
 
+a{
+    text-decoration: none;
+
+
+}
+.a_product{
+
+    background-color:lightslategray;
+    margin: 10px;
+    border: solid ;
+    padding: 5px;
+    text-align: center;
+}
 li a {
     display: block;
     color: white;
     text-align: center;
     padding: 14px 16px;
-    text-decoration: none;
+
 }
 
 /* Change the link color to #111 (black) on hover */
 li a:hover {
     background-color: #111;
+}
+
+.my-block {
+    display: block;
+}
+.my-block:hover {
+    border:1px solid red;
 }
 .menu{
     list-style-type: none;

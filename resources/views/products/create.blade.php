@@ -21,7 +21,7 @@
             <label for="description">Описание</label>
             <textarea  name="description"placeholder="Description"></textarea>
         </div>
-        <button type="submit" class="button">Создать</button>
+        <button type="submit" class="button button_create">Создать</button>
     </form>
 </div>
 @endsection
