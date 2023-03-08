@@ -6,7 +6,7 @@
             @method("patch")
             <div >
                 <div> <label for="name">Назваение</label></div>
-                <div><input type="text" name="name" placeholder="Name" value="{{$product->name}}"></div>
+                <div><input type="text" name="name" placeholder="Name"  autocomplete="off"  value="{{$product->name}}"></div>
             </div>
             <div class="product">
                 <div><label for="img">Картинка</label></div>
@@ -15,7 +15,7 @@
             </div>
             <div class="product">
                 <div><label for="price">Цена</label></div>
-                <div><input type="number" name="price"  placeholder="Number" autocomplete="off" value="{{$product->price}}"></div>
+                <div><input type="number" name="price"  placeholder="Number"  value="{{$product->price}}"></div>
 
             </div>
             <div class="product">
