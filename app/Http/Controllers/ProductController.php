@@ -21,6 +21,45 @@ class ProductController extends Controller
     {
         return view('products.create');
     }
+    public function CreateExm()
+    {
+        $examples=[
+            [
+                'name'=>'a',
+
+                'img'=>'img1',
+                'price'=>10,
+                'description'=>"None"
+            ],
+            [
+                'name'=>'b',
+
+                'img'=>'img2',
+                'price'=>12,
+                'description'=>"None"
+
+            ],
+            [
+                'name'=>'c',
+
+                'img'=>'img3',
+                'price'=>50,
+                'description'=>"None"
+            ],
+            [
+                'name'=>'d',
+
+                'img'=>'img3',
+                'price'=>100,
+                'description'=>"None"
+            ]
+        ];
+        foreach ($examples as $example)
+        {
+            Product::create($example);
+
+        }
+    }
 
     public function store()
     {
