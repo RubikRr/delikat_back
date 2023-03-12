@@ -8,11 +8,15 @@ use Illuminate\Http\Request;
 
 class OrderProductController extends Controller
 {
-    function GetProducts(Product $product)
+    function show($id)
     {
-        $data=OrderProduct::where("product_id",$product->id)->get();
+        $data=OrderProduct::where("order_id",$id)->get();
         return $data;
 
+    }
+    function GetOrders()
+    {
+        return OrderProduct::all();
     }
 
 
@@ -27,22 +31,22 @@ class OrderProductController extends Controller
             [
                 'order_id'=>1,
                 'product_id'=>2,
-                'quantity'=>50
+                'quantity'=>100
             ],
             [
                 'order_id'=>1,
                 'product_id'=>3,
-                'quantity'=>50
+                'quantity'=>331
             ],
             [
                 'order_id'=>2,
                 'product_id'=>3,
-                'quantity'=>50
+                'quantity'=>534
             ],
             [
                 'order_id'=>2,
                 'product_id'=>4,
-                'quantity'=>50
+                'quantity'=>5134
             ]
         ];
         foreach ($examples as $example)

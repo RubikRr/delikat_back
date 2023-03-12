@@ -22,8 +22,8 @@ Route::get('/products/restore/{product}',[ProductController::class,'restore']);
 Route::get("/products/showAll",[ProductController::class,'ShowAll'])->name("product.showAll");
 
 Route::get("/order_product/createExm",[\App\Http\Controllers\OrderProductController::class,"CreateExm"]);
-Route::get("/order_product/get",[\App\Http\Controllers\OrderProductController::class,"GetProducts"]);
-Route::get("/order_product/get/{product}",[\App\Http\Controllers\OrderProductController::class,"GetProducts"]);
+Route::get("/order_product/getAll",[\App\Http\Controllers\OrderProductController::class,"GetOrders"]);
+Route::get("/order_product/show/{orderProduct}",[\App\Http\Controllers\OrderProductController::class,"show"]);
 //не работают
 
 
