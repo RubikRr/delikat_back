@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\OrderProductController;
+use App\Models\Product;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\MainController;
@@ -9,21 +12,30 @@ use App\Http\Controllers\MainController;
 Route::get('/',[MainController::class,'index'])->name("main.index");
 
 
-Route::get("/products",[ProductController::class,'index'])->name("product.index");
-Route::get('/products/create',[ProductController::class,'create'])->name("product.create");
-Route::get('/products/show/{product}',[ProductController::class,'show'])->name("product.show");
-Route::post('/products',[ProductController::class,'store'])->name("product.store");
-Route::get('/products/show/{product}/edit',[ProductController::class,'edit'])->name("product.edit");
-Route::patch('/products/{product}',[ProductController::class,'update'])->name("product.update");
-Route::delete('/products/{product}',[ProductController::class,'destroy'])->name("product.delete");
+Route::controller(ProductController::class)->group(function (){
+    //CRUD
+    Route::get("/products",'index')->name("product.index");;
+    Route::get('/products/create','create')->name("product.create");
+    Route::get('/products/show/{product}','show')->name("product.show");
+    Route::post('/products','store')->name("product.store");
+    Route::get('/products/show/{product}/edit','edit')->name("product.edit");
+    Route::patch('/products/{product}','update')->name("product.update");
+    Route::delete('/products/{product}','destroy')->name("product.delete")->withTrashed();
+    //Доп
+    Route::get('/products/createExm',[ProductController::class,'CreateExm']);
+    Route::get('/products/restore/{product}',[ProductController::class,'restore'])->withTrashed();
+    Route::get("/products/showAll",[ProductController::class,'ShowAll'])->name("product.showAll");
+});
 
-Route::get('/products/createExm',[ProductController::class,'CreateExm']);
-Route::get('/products/restore/{product}',[ProductController::class,'restore']);
-Route::get("/products/showAll",[ProductController::class,'ShowAll'])->name("product.showAll");
 
-Route::get("/order_product/createExm",[\App\Http\Controllers\OrderProductController::class,"CreateExm"]);
-Route::get("/order_product/getAll",[\App\Http\Controllers\OrderProductController::class,"GetOrders"]);
-Route::get("/order_product/show/{orderProduct}",[\App\Http\Controllers\OrderProductController::class,"show"]);
+
+//Order_product
+Route::controller(OrderProductController::class)->group(function (){
+    Route::get("/order_product/createExm","CreateExm");
+    Route::get("/order_product/getAll","GetOrders");
+    Route::get("/order_product/show/{orderProduct}","show");
+});
+
 //не работают
 
 
