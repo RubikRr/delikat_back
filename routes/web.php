@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\OrderProductController;
+use App\Http\Resources\ProductResource;
 use App\Models\Product;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
@@ -14,7 +15,8 @@ Route::get('/',[MainController::class,'index'])->name("main.index");
 
 Route::controller(ProductController::class)->group(function (){
     //CRUD
-    Route::get("/products",'index')->name("product.index");;
+    Route::get("/products",'index')->name("product.index");
+
     Route::get('/products/create','create')->name("product.create");
     Route::get('/products/show/{product}','show')->name("product.show");
     Route::post('/products','store')->name("product.store");
@@ -55,3 +57,12 @@ Route::get('/clear', function () {
 
     return "Кэш очищен.";
 });
+
+
+
+
+
+
+//    Route::get("/products",function (){
+//        return ProductResource::collection(Product::all());
+//    })->name("product.index");
