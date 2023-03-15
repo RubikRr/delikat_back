@@ -56,7 +56,10 @@ class CustomerController extends Controller
         $customer->delete();
         return redirect()->route("customer.showAll");
     }
-
+    function restore(Customer $customer){
+        $customer->restore();
+        return redirect()->route("customer.showAll");
+    }
 
 public function showAll(){
         $customers=$this->index();

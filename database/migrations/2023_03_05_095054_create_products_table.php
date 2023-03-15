@@ -17,8 +17,9 @@ return new class extends Migration
             $table->text("description");
             $table->string("img")->nullable();
             $table->unsignedInteger("price");
-            $table->timestamps();
 
+
+            $table->timestamps();
             $table->softDeletes();
         });
     }
