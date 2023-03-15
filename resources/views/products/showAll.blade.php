@@ -4,5 +4,6 @@
         @foreach($products as $product)
                 <div ><a class="a_product my-block" href="{{route("product.show" , $product->id)}}">{{$product->name}}</a> </div>
         @endforeach
+            <a href="{{route("product.create")}}">Создать продукт</a>
     </div>
 @endsection

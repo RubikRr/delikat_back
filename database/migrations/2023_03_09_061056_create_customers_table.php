@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string("street",30);
             $table->unsignedInteger("house");
             $table->unsignedInteger("housing");
+            $table->unsignedInteger("entrance");
             $table->unsignedInteger("apartment");
 
             $table->timestamps();

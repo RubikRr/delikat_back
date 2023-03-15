@@ -11,14 +11,14 @@
 <body link="white" vlink="white" alink="white">
     <nav>
         <ul class="menu" >
-            <li ><a href="{{route("product.index")}}">JSON</a></li>
+
             <li><a href="{{route("main.index")}}">Главная</a></li>
 
             <li><a href="{{route("product.showAll")}}">Продукты</a>
-            <li><a href="{{route("main.index")}}">Клиенты</a>
+            <li><a href="{{route("customer.showAll")}}">Клиенты</a>
             <li> <a href="{{route("main.index")}}">Заказы</a>
 
-            <li><a href="{{route("product.create")}}">Создать продукт</a></li>
+
         </ul>
     </nav>
     <ul class="tables">
@@ -26,5 +26,6 @@
     </ul>
 
 @yield("product")
+@yield("customer")
 </body>
 </html>

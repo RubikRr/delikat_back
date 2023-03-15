@@ -30,4 +30,10 @@ class MainController extends Controller
         Artisan::call('route:clear');
         return redirect()->route("main.index");
     }
+
+    public function DropDB()
+    {
+        Artisan::call('migrate:fresh');
+        return redirect()->route("main.index");
+    }
 }

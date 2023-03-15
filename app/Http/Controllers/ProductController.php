@@ -20,13 +20,13 @@ class ProductController extends Controller
 
     public function store()
     {
-        $data=request()->validate([
+        $product=request()->validate([
             'name'=>'string',
             'description'=>'string',
             'img'=>'string',
             'price'=>'integer'
         ]);
-        Product::create($data);
+        Product::create($product);
         return redirect()->route("product.create");
     }
 
@@ -34,12 +34,12 @@ class ProductController extends Controller
     {
        return view("products.show",compact("product"));
     }
-    public function  edit(Product $product)
+    public function edit(Product $product)
     {
         return view("products.edit",compact("product"));
     }
 
-    public  function  update(Product $product){
+    public  function update(Product $product){
 
         $data=request()->validate([
             "name"=>"string",
