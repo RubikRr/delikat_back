@@ -12,9 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('orders', function (Blueprint $table) {
-            $table->increments("order_id");
-            $table->unsignedInteger("customer_id");
-            $table->foreign("customer_id")->references("customer_id")->on("customers");
+            $table->id();
+            $table->unsignedBigInteger("customer_id");
+            $table->foreign("customer_id")->references("id")->on("customers");
             $table->timestamps();
             $table->softDeletes();
         });

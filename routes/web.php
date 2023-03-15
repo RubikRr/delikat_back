@@ -12,6 +12,8 @@ use App\Http\Controllers\MainController;
 //работают
 Route::get('/',[MainController::class,'index'])->name("main.index");
 Route::get('/create',[MainController::class,'CreateExamples']);
+Route::get('/clear', [MainController::class,"Clear"]);
+
 
 
 Route::controller(ProductController::class)->group(function (){
@@ -49,14 +51,7 @@ Route::controller(OrderProductController::class)->group(function (){
 
 
 
-Route::get('/clear', function () {
-    Artisan::call('cache:clear');
-    Artisan::call('config:cache');
-    Artisan::call('view:clear');
-    Artisan::call('route:clear');
 
-    return "Кэш очищен.";
-});
 
 
 

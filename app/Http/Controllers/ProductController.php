@@ -32,8 +32,7 @@ class ProductController extends Controller
 
     public  function show(Product $product)//$id return Product::find($id)
     {
-        //dump($product);
-        return view("products.show",compact("product"));
+       return view("products.show",compact("product"));
     }
     public function  edit(Product $product)
     {

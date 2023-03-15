@@ -39,6 +39,7 @@ textarea {
 
 a{
     text-decoration: none;
+    color: black;
 }
 .a_product{
     background-color:cornflowerblue;
@@ -72,6 +73,13 @@ li a:hover {
     background-color: blue;
     display: flex;
     justify-content: center;
+}
+.tables{
+    justify-content: center;
+    display: flex;
+    background-color: red;
+    margin: 0;
+    padding: 0;
 }
 
 
