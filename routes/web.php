@@ -11,12 +11,12 @@ use App\Http\Controllers\MainController;
 
 //работают
 Route::get('/',[MainController::class,'index'])->name("main.index");
+Route::get('/create',[MainController::class,'CreateExamples']);
 
 
 Route::controller(ProductController::class)->group(function (){
     //CRUD
     Route::get("/products",'index')->name("product.index");
-
     Route::get('/products/create','create')->name("product.create");
     Route::get('/products/show/{product}','show')->name("product.show");
     Route::post('/products','store')->name("product.store");
@@ -24,7 +24,7 @@ Route::controller(ProductController::class)->group(function (){
     Route::patch('/products/{product}','update')->name("product.update");
     Route::delete('/products/{product}','destroy')->name("product.delete")->withTrashed();
     //Доп
-    Route::get('/products/createExm',[ProductController::class,'CreateExm']);
+
     Route::get('/products/restore/{product}',[ProductController::class,'restore'])->withTrashed();
     Route::get("/products/showAll",[ProductController::class,'ShowAll'])->name("product.showAll");
 });
@@ -33,7 +33,7 @@ Route::controller(ProductController::class)->group(function (){
 
 //Order_product
 Route::controller(OrderProductController::class)->group(function (){
-    Route::get("/order_product/createExm","CreateExm");
+
     Route::get("/order_product/getAll","GetOrders");
     Route::get("/order_product/show/{orderProduct}","show");
 });
