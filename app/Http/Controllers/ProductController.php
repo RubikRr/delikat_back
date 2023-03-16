@@ -27,7 +27,7 @@ class ProductController extends Controller
             'price'=>'integer'
         ]);
         Product::create($product);
-        return redirect()->route("product.create");
+        return redirect()->route("product.showAll");
     }
 
     public  function show(Product $product)//$id return Product::find($id)

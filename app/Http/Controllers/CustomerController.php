@@ -49,9 +49,11 @@ class CustomerController extends Controller
             'apartment'=>'integer'
         ]);
         $customer->update($data);
-        return redirect()->route("product.show",$customer->id);
+        return redirect()->route("customer.show",$customer->id);
     }
-
+    function edit(Customer $customer){
+        return view("customers.edit",compact("customer"));
+    }
     function destroy(Customer $customer){
         $customer->delete();
         return redirect()->route("customer.showAll");
@@ -90,8 +92,8 @@ public function showAll(){
                 "apartment"=>51
             ],
             [
-                "first_name"=>"Цаболов",
-                "last_name"=>"Станислав",
+                "first_name"=>"Станислав",
+                "last_name"=>"Цаболов",
                 "phone_number"=>"89197891436",
                 "street"=>"Джанаева",
                 "house"=>74,
@@ -100,8 +102,8 @@ public function showAll(){
                 "apartment"=>5
             ],
             [
-                "first_name"=>"Мамсурова",
-                "last_name"=>"Алина",
+                "first_name"=>"Алина",
+                "last_name"=>"Мамсурова",
                 "phone_number"=>"89184127963",
                 "street"=>"Ватутина",
                 "house"=>52,

@@ -8,7 +8,15 @@
     <div class="row">{{$customer->housing}} </div>
     <div class="row">{{$customer->entrance}} </div>
     <div class="row">{{$customer->apartment}} </div>
+    <div >
+        <form action="{{route("customer.edit",$customer->id)}}" method="get">
+            @csrf
+            <div class="btn ">
+                <input type="submit"  value="Изменить">
+            </div>
 
+        </form>
+    </div>
 
     <div >
         <form action="{{route("customer.delete",$customer->id)}}" method="post">

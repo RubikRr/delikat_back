@@ -41,6 +41,8 @@ Route::controller(CustomerController::class)->group(function (){
    Route::get("/customers/create","create")->name("customer.create");
    Route::post("/customers","store")->name("customer.store");
    Route::get("/customers/show/{customer}","show")->name("customer.show");
+    Route::get("/customers/show/{customer}/edit","edit")->name("customer.edit");
+    Route::patch("customers/{customer}","update")->name("customer.update");
    Route::delete('customers/{customer}',"destroy")->name("customer.delete")->withTrashed();
 
    Route::get("customers/restore/{customer}","restore")->name("customer.restore")->withTrashed();
