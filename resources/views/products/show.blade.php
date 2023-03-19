@@ -1,7 +1,7 @@
 @extends("layouts.main")
 @section("product")
     <div >{{$product->name}} </div>
-    <p><img src="{{ Storage::url('images/products/original/'.$product->image) }}" alt="{{$product->image}}"></p>
+    <p><img src="{{ Storage::url($product->image) }}" alt="{{$product->image}}"></p>
     <div >{{$product->price}} </div>
     <div ><textarea>{{$product->description}}</textarea> </div>
     <div>

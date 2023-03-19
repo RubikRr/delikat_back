@@ -37,11 +37,13 @@ class ProductController extends Controller
 
         $filename=$product['image']->getClientOriginalName();
         //Сохраняем оригинальную картинку
-        $product['image']->move(Storage::path('/public/images/products/').'original/',$filename);
+        $product['image']->move(Storage::path('/public/images/products/'),$filename);
 
+//        $thumbnail = Image::make(Storage::path('/public/images/products/').'original/'.$filename);
+//        $thumbnail->fit(300, 300);
+//        $thumbnail->save(Storage::path('/public/images/products/').'thumbnail/',$filename);
 
-
-        $product['image']=$filename;
+        $product['image']="/images/products/".$filename;
         Product::create($product);
         return redirect()->route("product.showAll");
     }
@@ -82,14 +84,14 @@ class ProductController extends Controller
             [
                 'name'=>'Фэри',
 
-                'image'=>'img1',
+                'image'=>'/images/products/corgi_samurai.png',
                 'price'=>76,
                 'description'=>"Крутой средство для мытья посуды"
             ],
             [
                 'name'=>'Порошок',
 
-                'image'=>'img2',
+                'image'=>'/images/products/corgi.png',
                 'price'=>100,
                 'description'=>"Чистая одежда"
 
@@ -97,14 +99,14 @@ class ProductController extends Controller
             [
                 'name'=>'Подгузники',
 
-                'image'=>'img3',
+                'image'=>'/images/products/wolf.png',
                 'price'=>200,
                 'description'=>"Для спиногрызов"
             ],
             [
                 'name'=>'Бритва',
 
-                'image'=>'img4',
+                'image'=>'/images/products/corgi.png',
                 'price'=>1000,
                 'description'=>"Джилет лучще для мужчины нет"
             ]

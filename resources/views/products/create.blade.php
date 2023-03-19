@@ -13,7 +13,7 @@
         <div >
             <label  for="image">Картинка *</label></div>
         <div >
-            <input  type="file" name="image" placeholder="Картинка" accept=".png" required></div>
+            <input  type="file" name="image" placeholder="Картинка" accept=".png,.jpeg,.jpg,.webp" required></div>
 
         <div >
             <label for="number">Цена *</label></div>
