@@ -1,34 +1,34 @@
 @extends("layouts.main")
 @section("product")
 <div>
-    <form action="{{route("product.store")}}" method="post">
+    <form enctype="multipart/form-data" action="{{route("product.store")}}" method="post">
         @csrf
         <fieldset>
-            <legend style="color: black">Создание нового продукты</legend>
-        <div class="labels">
-            <label id="name-label" for="name">Имя *</label></div>
-        <div class="input-tab">
-            <input class="input-field" type="text" id="name" name="name" placeholder="Enter product name" required autofocus></div>
+            <legend >Создание нового продукты</legend>
+        <div>
+            <label for="name">Имя *</label></div>
+        <div >
+            <input  type="text"  name="name" placeholder="Введите название продукта" required autofocus></div>
 
-        <div class="labels">
-            <label id="Image" for="email">Картинка *</label></div>
-        <div class="input-tab">
-            <input class="input-field" type="text" id="image" name="img" placeholder="Image" required></div>
+        <div >
+            <label  for="image">Картинка *</label></div>
+        <div >
+            <input  type="file" name="image" placeholder="Картинка" accept=".png" required></div>
 
-        <div class="labels">
-            <label id="number-label" for="number">Цена *</label></div>
-        <div class="input-tab">
-            <input class="input-field" type="number" id="price" name="price" min="1" max="1000000" placeholder="15" required></div>
+        <div >
+            <label for="number">Цена *</label></div>
+        <div >
+            <input  type="number"  name="price" min="1" max="1000000" placeholder="100" required></div>
 
 
 
-        <div class="labels">
-            <label for="comments">Описание</label></div>
-        <div class="input-tab">
-            <textarea class="input-field" id="description" name="description" rows="10" cols="40" placeholder="Description"></textarea></div>
+        <div >
+            <label >Описание</label></div>
+        <div >
+            <textarea name="description" rows="10" cols="40" placeholder="Описание"></textarea></div>
 
-        <div class="btn">
-            <button id="submit" type="submit">Создать</button>
+        <div >
+            <button type="submit">Создать</button>
         </div>
         </fieldset>
     </form>

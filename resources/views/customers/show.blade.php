@@ -1,17 +1,17 @@
 @extends("layouts.main")
 @section("customer")
-    <div class="row">{{$customer->first_name}} </div>
-    <div class="row">{{$customer->last_name}} </div>
-    <div class="row">{{$customer->phone_number}} </div>
-    <div class="row">{{$customer->street}} </div>
-    <div class="row">{{$customer->house}} </div>
-    <div class="row">{{$customer->housing}} </div>
-    <div class="row">{{$customer->entrance}} </div>
-    <div class="row">{{$customer->apartment}} </div>
+    <div >{{$customer->first_name}} </div>
+    <div >{{$customer->last_name}} </div>
+    <div >{{$customer->phone_number}} </div>
+    <div >{{$customer->street}} </div>
+    <div >{{$customer->house}} </div>
+    <div >{{$customer->housing}} </div>
+    <div>{{$customer->entrance}} </div>
+    <div>{{$customer->apartment}} </div>
     <div >
         <form action="{{route("customer.edit",$customer->id)}}" method="get">
             @csrf
-            <div class="btn ">
+            <div>
                 <input type="submit"  value="Изменить">
             </div>
 
@@ -22,7 +22,7 @@
         <form action="{{route("customer.delete",$customer->id)}}" method="post">
             @csrf
             @method("delete")
-            <div class="btn ">
+            <div >
                 <input type="submit"  value="Удалить">
             </div>
 

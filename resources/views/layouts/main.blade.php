@@ -8,24 +8,19 @@
     <link rel="stylesheet" href="{{URL::asset("css/style.css") }}">
     <title>Document</title>
 </head>
-<body link="white" vlink="white" alink="white">
+<body >
     <nav>
-        <ul class="menu" >
-
+        <ul>
             <li><a href="{{route("main.index")}}">Главная</a></li>
-
             <li><a href="{{route("product.showAll")}}">Продукты</a>
             <li><a href="{{route("customer.showAll")}}">Клиенты</a>
             <li> <a href="{{route("main.index")}}">Заказы</a>
-
-
         </ul>
     </nav>
-    <ul class="tables">
-
-    </ul>
 
 @yield("product")
 @yield("customer")
+
 </body>
+
 </html>

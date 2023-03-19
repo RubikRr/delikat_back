@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use Illuminate\Database\Eloquent\Collection;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
 
 class ProductController extends Controller
 {
@@ -18,14 +20,28 @@ class ProductController extends Controller
     }
 
 
-    public function store()
+    public function store(Request $request)
     {
-        $product=request()->validate([
+
+        $product=$request->validate([
             'name'=>'string',
             'description'=>'string',
-            'img'=>'string',
+            'image'=>'Image',
             'price'=>'integer'
         ]);
+
+
+
+
+
+
+        $filename=$product['image']->getClientOriginalName();
+        //Сохраняем оригинальную картинку
+        $product['image']->move(Storage::path('/public/images/products/').'original/',$filename);
+
+
+
+        $product['image']=$filename;
         Product::create($product);
         return redirect()->route("product.showAll");
     }
@@ -44,7 +60,7 @@ class ProductController extends Controller
         $data=request()->validate([
             "name"=>"string",
             "description"=>"string",
-            "img"=>"string",
+            "image"=>"string",
             "price"=>"integer"
         ]);
         $product->update($data);
@@ -64,33 +80,33 @@ class ProductController extends Controller
     {
         $examples=[
             [
-                'name'=>'a',
+                'name'=>'Фэри',
 
-                'img'=>'img1',
-                'price'=>10,
-                'description'=>"None"
+                'image'=>'img1',
+                'price'=>76,
+                'description'=>"Крутой средство для мытья посуды"
             ],
             [
-                'name'=>'b',
+                'name'=>'Порошок',
 
-                'img'=>'img2',
-                'price'=>12,
-                'description'=>"None"
-
-            ],
-            [
-                'name'=>'c',
-
-                'img'=>'img3',
-                'price'=>50,
-                'description'=>"None"
-            ],
-            [
-                'name'=>'d',
-
-                'img'=>'img3',
+                'image'=>'img2',
                 'price'=>100,
-                'description'=>"None"
+                'description'=>"Чистая одежда"
+
+            ],
+            [
+                'name'=>'Подгузники',
+
+                'image'=>'img3',
+                'price'=>200,
+                'description'=>"Для спиногрызов"
+            ],
+            [
+                'name'=>'Бритва',
+
+                'image'=>'img4',
+                'price'=>1000,
+                'description'=>"Джилет лучще для мужчины нет"
             ]
         ];
         foreach ($examples as $example)

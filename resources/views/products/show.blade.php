@@ -1,13 +1,13 @@
 @extends("layouts.main")
 @section("product")
-    <div class="row">{{$product->name}} </div>
-    <div class="row">{{$product->img}} </div>
-    <div class="row">{{$product->price}} </div>
+    <div >{{$product->name}} </div>
+    <p><img src="{{ Storage::url('images/products/original/'.$product->image) }}" alt="{{$product->image}}"></p>
+    <div >{{$product->price}} </div>
     <div ><textarea>{{$product->description}}</textarea> </div>
     <div>
         <div >
             <form action="{{route("product.edit",$product->id)}}" method="get">
-                <div class="btn">
+                <div >
                     <input type="submit"  value="Изменить">
                 </div>
 
@@ -17,7 +17,7 @@
             <form action="{{route("product.delete",$product->id)}}" method="post">
                 @csrf
                 @method("delete")
-                <div class="btn ">
+                <div>
                     <input type="submit"  value="Удалить">
                 </div>
 
