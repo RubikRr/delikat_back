@@ -62,9 +62,14 @@ class ProductController extends Controller
         $data=request()->validate([
             "name"=>"string",
             "description"=>"string",
-            "image"=>"string",
+            "image"=>"Image",
             "price"=>"integer"
         ]);
+        $filename=$data['image']->getClientOriginalName();
+        $data['image']->move(Storage::path('/public/images/products/'),$filename);
+        $data['image']="/images/products/".$filename;
+
+
         $product->update($data);
         return redirect()->route("product.show",$product->id);
     }

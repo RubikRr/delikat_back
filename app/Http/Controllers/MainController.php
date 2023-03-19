@@ -28,6 +28,7 @@ class MainController extends Controller
         Artisan::call('config:cache');
         Artisan::call('view:clear');
         Artisan::call('route:clear');
+        Artisan::call('storage:link');
         return redirect()->route("main.index");
     }
 

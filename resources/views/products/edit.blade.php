@@ -1,7 +1,7 @@
 @extends("layouts.main")
 @section("product")
     <div>
-        <form  action="{{route("product.update",$product->id)}}" method="post">
+        <form enctype="multipart/form-data" action="{{route("product.update",$product->id)}}" method="post">
             @csrf
             @method("patch")
             <div >
