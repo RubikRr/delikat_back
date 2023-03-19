@@ -29,7 +29,7 @@ class ProductController extends Controller
             'image'=>'Image',
             'price'=>'integer'
         ]);
-        
+
         $filename=$product['image']->getClientOriginalName();
         //Сохраняем оригинальную картинку
         $product['image']->move(Storage::path('/public/images/products/'),$filename);

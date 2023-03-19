@@ -15,9 +15,9 @@ class Product extends Model
     use SoftDeletes;
     protected $table='products';
     protected $guarded=[];
-//    protected $hidden = [
-//        'deleted_at',
-//        'created_at',
-//        'updated_at',
-//    ];
+    protected $hidden = [
+        'deleted_at',
+        'created_at',
+        'updated_at',
+    ];
 }

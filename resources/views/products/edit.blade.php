@@ -10,7 +10,7 @@
             </div>
             <div >
                 <div >
-                    <input  type="file" name="image" placeholder="Картинка" accept=".png" value="{{$product->image}}" required></div>
+                    <input  type="file" name="image" placeholder="Картинка" accept=".png,.jpeg,.jpg,.webp" value="{{$product->image}}" required></div>
 
                 <div >
             </div>
