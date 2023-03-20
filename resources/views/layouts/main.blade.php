@@ -14,13 +14,13 @@
             <li><a href="{{route("main.index")}}">Главная</a></li>
             <li><a href="{{route("product.showAll")}}">Продукты</a>
             <li><a href="{{route("customer.showAll")}}">Клиенты</a>
-            <li> <a href="{{route("main.index")}}">Заказы</a>
+            <li> <a href="{{route("order.showAll")}}">Заказы</a>
         </ul>
     </nav>
 
 @yield("product")
 @yield("customer")
-
+@yield("order")
 </body>
 
 </html>

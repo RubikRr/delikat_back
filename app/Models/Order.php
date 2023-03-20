@@ -10,5 +10,5 @@ class Order extends Model
     use HasFactory;
     protected $table="orders";
     protected $guarded=[];
-
+    protected $hidden=['created_at','updated_at','deleted_at'];
 }

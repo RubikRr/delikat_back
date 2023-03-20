@@ -8,24 +8,26 @@
         <div>
             <label for="name">Имя *</label></div>
         <div >
-            <input  type="text"  name="name" placeholder="Введите название продукта" required autofocus></div>
+            <input  type="text"  name="name" placeholder="Введите название продукта" required autofocus>
+        </div>
 
         <div >
             <label  for="image">Картинка *</label></div>
         <div >
-            <input  type="file" name="image" placeholder="Картинка" accept=".png,.jpeg,.jpg,.webp" required></div>
+            <input  type="file" name="image" placeholder="Картинка" accept=".png,.jpeg,.jpg,.webp" required>
+        </div>
 
         <div >
             <label for="number">Цена *</label></div>
         <div >
-            <input  type="number"  name="price" min="1" max="1000000" placeholder="100" required></div>
-
-
+            <input  type="number"  name="price" min="1" max="1000000" placeholder="100" required>
+        </div>
 
         <div >
             <label >Описание</label></div>
         <div >
-            <textarea name="description" rows="10" cols="40" placeholder="Описание"></textarea></div>
+            <textarea name="description" rows="10" cols="40" placeholder="Описание"></textarea>
+        </div>
 
         <div >
             <button type="submit">Создать</button>

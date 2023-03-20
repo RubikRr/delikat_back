@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\OrderProductController;
 use App\Http\Resources\ProductResource;
 use App\Models\Product;
@@ -49,7 +50,12 @@ Route::controller(CustomerController::class)->group(function (){
    Route::get("/customers/showAll",'ShowAll')->name("customer.showAll");
 });
 
+Route::controller(OrderController::class)->group(function (){
+   Route::get("orders","index")->name("order.index");
+   Route::get("orders/show/{order}","show")->name('order.show');
+    Route::get("orders/showAll","showAll")->name('order.showAll');
 
+});
 //Order_product
 Route::controller(OrderProductController::class)->group(function (){
 
