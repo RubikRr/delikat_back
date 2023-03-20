@@ -47,6 +47,10 @@ class ProductController extends Controller
     {
        return view("products.show",compact("product"));
     }
+    public  function showFields(Product $product)
+    {
+        return view("products.showFields",compact("product"));
+    }
     public function edit(Product $product)
     {
         return view("products.edit",compact("product"));

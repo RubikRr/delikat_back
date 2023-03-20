@@ -20,6 +20,10 @@
     @yield("order")
     @yield("product")
     @yield("customer")
+    @yield("customerFields")
+    @yield("orderProduct")
+
+
 
 </body>
 

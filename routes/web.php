@@ -33,6 +33,7 @@ Route::controller(ProductController::class)->group(function (){
     Route::delete('/products/{product}','destroy')->name("product.delete")->withTrashed();
     //Доп
 
+    Route::get('/products/showFields/{product}','showFields')->name("product.showFields");
     Route::get('/products/restore/{product}','restore')->withTrashed();
     Route::get("/products/showAll",'ShowAll')->name("product.showAll");
 });
@@ -46,6 +47,7 @@ Route::controller(CustomerController::class)->group(function (){
     Route::patch("customers/{customer}","update")->name("customer.update");
    Route::delete('customers/{customer}',"destroy")->name("customer.delete")->withTrashed();
 
+    Route::get("/customers/showFields/{customer}","showFields")->name("customer.showFields");
    Route::get("customers/restore/{customer}","restore")->name("customer.restore")->withTrashed();
    Route::get("/customers/showAll",'ShowAll')->name("customer.showAll");
 });
@@ -59,8 +61,8 @@ Route::controller(OrderController::class)->group(function (){
 //Order_product
 Route::controller(OrderProductController::class)->group(function (){
 
-    Route::get("/order_products/getAll","GetOrders");
-    Route::get("/order_products/show/{orderProduct}","show");
+    Route::get("/order_products/index","GetOrders")->name("order_product.index");
+    Route::get("/order_products/show/{id}","show")->name("order_product.show");
 });
 
 //не работают

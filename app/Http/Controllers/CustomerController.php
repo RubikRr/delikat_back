@@ -35,6 +35,11 @@ class CustomerController extends Controller
 
         return view("customers.show",compact("customer"));
     }
+    function showFields(Customer $customer)
+    {
+
+        return view("customers.showFields",compact("customer"));
+    }
 
     public  function update(Customer $customer){
 

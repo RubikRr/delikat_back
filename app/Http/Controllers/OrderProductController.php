@@ -10,11 +10,19 @@ class OrderProductController extends Controller
 {
     function show($id)
     {
-        $data=OrderProduct::where("order_id",$id)->get();
-        return $data;
+        $orderProducts=OrderProduct::where("order_id",$id)->get();
+        //return $order_products;
+        return view("order_products.show",compact('order_products'));
 
     }
-    function GetOrders()
+
+    function showAll(OrderProduct $orderProducts)
+    {
+
+        return view("order_products.showAll",compact('orderProducts'));
+
+    }
+    function index()
     {
         return OrderProduct::all();
     }

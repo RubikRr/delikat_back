@@ -12,7 +12,7 @@ class OrderProduct extends Model
     protected $primaryKey = ['order_id', 'product_id'];
     protected $guarded=[];
     protected $hidden = [
-        'deleted_at',
+        'updated_at',
         'created_at',
     ];
     public $incrementing = false;

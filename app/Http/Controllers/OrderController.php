@@ -16,8 +16,8 @@ class OrderController extends Controller
     public function show(Order $order)
     {
         $customer=Customer::find($order->customer_id);
-
-
+        //$products=(new OrderProductController)->show($order->id);
+        //return $products;
         return view('orders.show',compact("order","customer"));
     }
 
