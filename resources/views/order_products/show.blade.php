@@ -1,10 +1,10 @@
 @extends("layouts.main")
 
 @section("orderProduct")
-    @foreach($order_products as $order_product)
-        <div>Номер заказа:{{$order_product->order_id}}</div>
-        <div>Id продукта:{{$order_product->product_id}}</div>
-        <div>Количество{{$order_product->quantity}}</div>
+    @foreach($orderProducts as $orderProduct)
+        <div>Номер заказа:{{$orderProduct->order_id}}</div>
+        <div>Id продукта:{{$orderProduct->product_id}}</div>
+        <div>Количество{{$orderProduct->quantity}}</div>
         <p> </p>
     @endforeach
 

@@ -63,6 +63,7 @@ Route::controller(OrderProductController::class)->group(function (){
 
     Route::get("/order_products/index","GetOrders")->name("order_product.index");
     Route::get("/order_products/show/{id}","show")->name("order_product.show");
+    Route::get("/order_products/showAll","showAll")->name("order_product.showAll");
 });
 
 //не работают

@@ -12,13 +12,14 @@ class OrderProductController extends Controller
     {
         $orderProducts=OrderProduct::where("order_id",$id)->get();
         //return $order_products;
-        return view("order_products.show",compact('order_products'));
+        return view("order_products.show",compact('orderProducts'));
 
     }
 
     function showAll(OrderProduct $orderProducts)
     {
-
+        $orderProducts=$this->index();
+        //return $orderProducts;
         return view("order_products.showAll",compact('orderProducts'));
 
     }
