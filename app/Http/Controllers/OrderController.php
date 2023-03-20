@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Customer;
 use App\Models\Order;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -13,7 +15,10 @@ class OrderController extends Controller
     }
     public function show(Order $order)
     {
-        return view('orders.show',compact("order"));
+        $customer=Customer::find($order->customer_id);
+
+
+        return view('orders.show',compact("order","customer"));
     }
 
     public function showAll()

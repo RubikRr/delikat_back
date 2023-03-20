@@ -17,10 +17,10 @@
             <li> <a href="{{route("order.showAll")}}">Заказы</a>
         </ul>
     </nav>
+    @yield("order")
+    @yield("product")
+    @yield("customer")
 
-@yield("product")
-@yield("customer")
-@yield("order")
 </body>
 
 </html>

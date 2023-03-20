@@ -11,5 +11,9 @@ class OrderProduct extends Model
     protected $table='order_products';
     protected $primaryKey = ['order_id', 'product_id'];
     protected $guarded=[];
+    protected $hidden = [
+        'deleted_at',
+        'created_at',
+    ];
     public $incrementing = false;
 }
