@@ -16,9 +16,9 @@ class CustomerController extends Controller
         return view("customers.create");
     }
 
-    function store(){
+    function store(Request $request){
 
-        $customer=request()->validate([
+        $customer=$request->validate([
             'first_name'=>'string',
             'last_name'=>'string',
             'phone_number' =>'string',//'required|numeric|min:6|max:11', -Валидация номера телефона
@@ -28,7 +28,9 @@ class CustomerController extends Controller
             'entrance'=>'integer',
             'apartment'=>'integer'
         ]);
+        //return $customer;
         Customer::create($customer);
+
         return redirect()->route("customer.showAll");
     }
     function show(Customer $customer){
@@ -76,8 +78,7 @@ public function showAll(){
 
     public function CreateExm(){
         $examples=[
-            [
-                "first_name"=>"Владимир",
+            ["first_name"=>"Владимир",
             "last_name"=>"Чакалов",
             "phone_number"=>"89194273621",
             "street"=>"Коста",

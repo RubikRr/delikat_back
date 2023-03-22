@@ -20,7 +20,15 @@ class OrderController extends Controller
         //return $products;
         return view('orders.show',compact("order","customer"));
     }
-
+    public function store(Request $request)
+    {
+        $customer=$request->customer[0];
+        $requestCustomer=new Request($customer);
+        (new CustomerController)->store($requestCustomer);
+        return ("ok");
+        //Customer::create($customer);
+        return redirect()->route("customer.showAll");
+    }
     public function showAll()
     {
         $orders=$this->index();
@@ -43,3 +51,25 @@ class OrderController extends Controller
         }
     }
 }
+//{
+//    "first_name":"Вова",
+//  "last_name":"Чакалов",
+//  "phone_number":"89194273622",
+//  "street":"Коста",
+//  "house":278,
+//  "housing":1,
+//  "entrance":6,
+//  "apartment":80,
+//
+//  "order_products":
+//  [
+//    {
+//        "product_id":1,
+//      "quantity":612
+//    },
+//    {
+//        "product_id":2,
+//      "quantity":684
+//    }
+//  ]
+//}

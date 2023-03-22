@@ -53,6 +53,7 @@ Route::controller(CustomerController::class)->group(function (){
 });
 
 Route::controller(OrderController::class)->group(function (){
+    Route::post("orders","store")->name("order.store");
    Route::get("orders","index")->name("order.index");
    Route::get("orders/show/{order}","show")->name('order.show');
     Route::get("orders/showAll","showAll")->name('order.showAll');
