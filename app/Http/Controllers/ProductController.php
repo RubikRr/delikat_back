@@ -85,14 +85,14 @@ class ProductController extends Controller
             [
                 'name'=>'Фэри',
 
-                'image'=>'/images/products/corgi_samurai.png',
+                'image'=>'/images/products/original/corgi_samurai.png',
                 'price'=>76,
                 'description'=>"Крутой средство для мытья посуды"
             ],
             [
                 'name'=>'Порошок',
 
-                'image'=>'/images/products/corgi.png',
+                'image'=>'/images/products/original/corgi.png',
                 'price'=>100,
                 'description'=>"Чистая одежда"
 
@@ -100,14 +100,14 @@ class ProductController extends Controller
             [
                 'name'=>'Подгузники',
 
-                'image'=>'/images/products/wolf.png',
+                'image'=>'/images/products/original/wolf.png',
                 'price'=>200,
                 'description'=>"Для спиногрызов"
             ],
             [
                 'name'=>'Бритва',
 
-                'image'=>'/images/products/corgi.png',
+                'image'=>'/images/products/original/corgi.png',
                 'price'=>1000,
                 'description'=>"Джилет лучще для мужчины нет"
             ]

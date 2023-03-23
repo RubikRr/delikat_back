@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-
+//Route::delete('/orders/{order}',[OrderController::class,'destroy'])->name("order.delete")->withTrashed();
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });

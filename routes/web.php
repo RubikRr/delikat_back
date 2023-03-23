@@ -45,7 +45,7 @@ Route::controller(OrderController::class)->group(function (){
     Route::get("orders","index")->name("order.index");
     Route::get("orders/show/{order}","show")->name('order.show');
     Route::post("orders","store")->name("order.store");
-    
+
     Route::get("orders/showAll","showAll")->name('order.showAll');
     Route::delete('/orders/{order}','destroy')->name("order.delete")->withTrashed();
 
