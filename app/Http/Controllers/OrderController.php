@@ -47,6 +47,11 @@ class OrderController extends Controller
         }
         return redirect()->route("order.showAll");
     }
+    public function destroy(Order $order)
+    {
+        $order->delete();
+        return redirect()->route("order.showAll");
+    }
     public function showAll()
     {
         $orders=$this->index();
