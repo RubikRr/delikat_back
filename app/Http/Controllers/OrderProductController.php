@@ -11,16 +11,15 @@ class OrderProductController extends Controller
     function show($id)
     {
         $orderProducts=OrderProduct::where("order_id",$id)->get();
-        //return $order_products;
-        return view("order_products.show",compact('orderProducts'));
+        return view("orderProducts.show",compact('orderProducts'));
 
     }
 
-    function showAll(OrderProduct $orderProducts)
+    function showAll()
     {
         $orderProducts=$this->index();
         //return $orderProducts;
-        return view("order_products.showAll",compact('orderProducts'));
+        return view("orderProducts.showAll",compact('orderProducts'));
 
     }
     function index()
@@ -38,22 +37,22 @@ class OrderProductController extends Controller
                 'quantity'=>50
             ],
             [
-                'order_id'=>1,
+                'order_id'=>2,
                 'product_id'=>2,
                 'quantity'=>100
             ],
             [
-                'order_id'=>1,
-                'product_id'=>3,
+                'order_id'=>3,
+                'product_id'=>1,
                 'quantity'=>331
             ],
             [
-                'order_id'=>2,
+                'order_id'=>4,
                 'product_id'=>3,
                 'quantity'=>534
             ],
             [
-                'order_id'=>2,
+                'order_id'=>4,
                 'product_id'=>4,
                 'quantity'=>5134
             ]

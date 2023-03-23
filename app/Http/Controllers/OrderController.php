@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Customer;
 use App\Models\Order;
+use App\Models\OrderProduct;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -30,12 +31,21 @@ class OrderController extends Controller
             'apartment'=>'Integer',
         ]);
         $order=Order::create($dataOrder);
-        return $order;
         $orderProducts=$request->validate([
-            'order_products'=>'array:product_id,quantity',
+            'order_products.*.product_id'=>'Integer',
+            'order_products.*.quantity'=>'Integer',
         ]);
-        return $orderProducts;
-        return $order;
+        foreach ($orderProducts['order_products'] as $orderProduct)
+        {
+            $orderProduct=[
+              'order_id'=>$order->id,
+                'product_id'=>$orderProduct['product_id'],
+
+              'quantity'=>$orderProduct['quantity']
+            ];
+            OrderProduct::create($orderProduct);
+        }
+        return redirect()->route("order.showAll");
     }
     public function showAll()
     {

@@ -59,9 +59,9 @@ Route::controller(OrderController::class)->group(function (){
 //Order_product
 Route::controller(OrderProductController::class)->group(function (){
 
-    Route::get("/order_products/index","GetOrders")->name("order_product.index");
-    Route::get("/order_products/show/{id}","show")->name("order_product.show");
-    Route::get("/order_products/showAll","showAll")->name("order_product.showAll");
+    Route::get("/orderProducts","index")->name("orderProduct.index");
+    Route::get("/orderProducts/show/{id}","show")->name("orderProduct.show");
+    Route::get("/orderProducts/showAll","showAll")->name("orderProduct.showAll");
 });
 
 //не работают
