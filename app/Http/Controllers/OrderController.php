@@ -19,7 +19,7 @@ class OrderController extends Controller
     }
     public function store(Request $request)
     {
-        $order=$request->validate([
+        $dataOrder=$request->validate([
             'first_name'=>'string',
             'last_name'=>'string',
             'phone_number'=>'string',
@@ -29,11 +29,10 @@ class OrderController extends Controller
             'entrance'=>'Integer',
             'apartment'=>'Integer',
         ]);
+        $order=Order::create($dataOrder);
+        return $order;
         $orderProducts=$request->validate([
-            'order_products'=>[
-                'product_id'=>'Integer',
-                'quantity'=>'Integer'
-            ],
+            'order_products'=>'array:product_id,quantity',
         ]);
         return $orderProducts;
         return $order;
