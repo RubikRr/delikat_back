@@ -43,17 +43,18 @@ Route::controller(ProductController::class)->group(function (){
 Route::controller(OrderController::class)->group(function (){
     //работает
     Route::get("orders","index")->name("order.index");
+    Route::get("orders/show/{order}","show")->name('order.show');
+
+
+
+    Route::get("orders/showAll","showAll")->name('order.showAll');
 
     //не работает
-
-    Route::get("orders/show/{order}","show")->name('order.show');
     Route::post("orders","store")->name("order.store");
-
 
     Route::get('/orders/show/{order}/edit','edit')->name("order.edit");
     Route::patch('/orders/{order}','update')->name("order.update");
     Route::delete('/orders/{order}','destroy')->name("order.delete")->withTrashed();
-    Route::get("orders/showAll","showAll")->name('order.showAll');
 });
 //Order_product
 Route::controller(OrderProductController::class)->group(function (){

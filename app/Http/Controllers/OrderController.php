@@ -19,7 +19,24 @@ class OrderController extends Controller
     }
     public function store(Request $request)
     {
-
+        $order=$request->validate([
+            'first_name'=>'string',
+            'last_name'=>'string',
+            'phone_number'=>'string',
+            'street'=>'string',
+            'house'=>'Integer',
+            'housing'=>'Integer',
+            'entrance'=>'Integer',
+            'apartment'=>'Integer',
+        ]);
+        $orderProducts=$request->validate([
+            'order_products'=>[
+                'product_id'=>'Integer',
+                'quantity'=>'Integer'
+            ],
+        ]);
+        return $orderProducts;
+        return $order;
     }
     public function showAll()
     {
