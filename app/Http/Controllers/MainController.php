@@ -16,7 +16,6 @@ class MainController extends Controller
     public function CreateExamples()
     {
         (new ProductController)->CreateExm();
-        (new CustomerController())->CreateExm();
         (new OrderController)->CreateExm();
         (new OrderProductController)->CreateExm();
         return redirect()->route("main.index");
@@ -28,7 +27,7 @@ class MainController extends Controller
         Artisan::call('config:cache');
         Artisan::call('view:clear');
         Artisan::call('route:clear');
-        Artisan::call('storage:link');
+        //Artisan::call('storage:link');
         return redirect()->route("main.index");
     }
 

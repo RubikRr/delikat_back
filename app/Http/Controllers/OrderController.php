@@ -15,35 +15,60 @@ class OrderController extends Controller
     }
     public function show(Order $order)
     {
-        $customer=Customer::find($order->customer_id);
-        //$products=(new OrderProductController)->show($order->id);
-        //return $products;
-        return view('orders.show',compact("order","customer"));
+        return view("orders.show",compact("order"));
     }
     public function store(Request $request)
     {
-        $customer=$request->customer[0];
-        $requestCustomer=new Request($customer);
-        (new CustomerController)->store($requestCustomer);
-        return ("ok");
-        //Customer::create($customer);
-        return redirect()->route("customer.showAll");
+
     }
     public function showAll()
     {
         $orders=$this->index();
-        return view("orders.showAll",compact('orders'));
+        return view("orders.showAll",compact("orders"));
     }
     public function CreateExm()
     {
         $examples=[
             [
-                'customer_id'=>1,
+                "first_name"=>"Владимир",
+                "last_name"=>"Чакалов",
+                "phone_number"=>"89194273621",
+                "street"=>"Коста",
+                "house"=>292,
+                "housing"=>1,
+                "entrance"=>6,
+                "apartment"=>79
             ],
-
             [
-                'customer_id'=>2,
+                "first_name"=>"Эрик",
+                "last_name"=>"Маргиев",
+                "phone_number"=>"89187891452",
+                "street"=>"Коста",
+                "house"=>217,
+                "housing"=>2,
+                "entrance"=>3,
+                "apartment"=>51
             ],
+            [
+                "first_name"=>"Станислав",
+                "last_name"=>"Цаболов",
+                "phone_number"=>"89197891436",
+                "street"=>"Джанаева",
+                "house"=>74,
+                "housing"=>3,
+                "entrance"=>1,
+                "apartment"=>5
+            ],
+            [
+                "first_name"=>"Алина",
+                "last_name"=>"Мамсурова",
+                "phone_number"=>"89184127963",
+                "street"=>"Ватутина",
+                "house"=>52,
+                "housing"=>1,
+                "entrance"=>3,
+                "apartment"=>80
+            ]
         ];
         foreach ($examples as $example)
         {

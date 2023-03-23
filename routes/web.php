@@ -38,26 +38,22 @@ Route::controller(ProductController::class)->group(function (){
     Route::get("/products/showAll",'ShowAll')->name("product.showAll");
 });
 
-Route::controller(CustomerController::class)->group(function (){
-   Route::get("/customers","index")->name("customer.index");
-   Route::get("/customers/create","create")->name("customer.create");
-   Route::post("/customers","store")->name("customer.store");
-   Route::get("/customers/show/{customer}","show")->name("customer.show");
-    Route::get("/customers/show/{customer}/edit","edit")->name("customer.edit");
-    Route::patch("customers/{customer}","update")->name("customer.update");
-   Route::delete('customers/{customer}',"destroy")->name("customer.delete")->withTrashed();
 
-    Route::get("/customers/showFields/{customer}","showFields")->name("customer.showFields");
-   Route::get("customers/restore/{customer}","restore")->name("customer.restore")->withTrashed();
-   Route::get("/customers/showAll",'ShowAll')->name("customer.showAll");
-});
 
 Route::controller(OrderController::class)->group(function (){
-    Route::post("orders","store")->name("order.store");
-   Route::get("orders","index")->name("order.index");
-   Route::get("orders/show/{order}","show")->name('order.show');
-    Route::get("orders/showAll","showAll")->name('order.showAll');
+    //работает
+    Route::get("orders","index")->name("order.index");
 
+    //не работает
+
+    Route::get("orders/show/{order}","show")->name('order.show');
+    Route::post("orders","store")->name("order.store");
+
+
+    Route::get('/orders/show/{order}/edit','edit')->name("order.edit");
+    Route::patch('/orders/{order}','update')->name("order.update");
+    Route::delete('/orders/{order}','destroy')->name("order.delete")->withTrashed();
+    Route::get("orders/showAll","showAll")->name('order.showAll');
 });
 //Order_product
 Route::controller(OrderProductController::class)->group(function (){

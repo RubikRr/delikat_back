@@ -13,8 +13,16 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger("customer_id");
-            $table->foreign("customer_id")->references("id")->on("customers")->onDelete('cascade');
+            $table->string("first_name",30);
+            $table->string("last_name",30);
+            $table->string("phone_number",20);
+            $table->string("street",30);
+            $table->unsignedInteger("house");
+            $table->unsignedInteger("housing");
+            $table->unsignedInteger("entrance");
+            $table->unsignedInteger("apartment");
+
+
             $table->timestamps();
             $table->softDeletes();
         });

@@ -32,13 +32,11 @@ class ProductController extends Controller
 
         $filename=$product['image']->getClientOriginalName();
         //Сохраняем оригинальную картинку
-        $product['image']->move(Storage::path('/public/images/products/'),$filename);
+        return $product['image'];
+        $product['image']->move(Storage::path('/public/images/products/').'original',$filename);
 
-//        $thumbnail = Image::make(Storage::path('/public/images/products/').'original/'.$filename);
-//        $thumbnail->fit(300, 300);
-//        $thumbnail->save(Storage::path('/public/images/products/').'thumbnail/',$filename);
 
-        $product['image']="/images/products/".$filename;
+        $product['image']="/images/products/thumbnail".$filename;
         Product::create($product);
         return redirect()->route("product.showAll");
     }
