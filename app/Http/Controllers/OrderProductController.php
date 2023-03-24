@@ -5,13 +5,22 @@ namespace App\Http\Controllers;
 use App\Models\OrderProduct;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use function Sodium\add;
 
 class OrderProductController extends Controller
 {
     function show($id)
     {
         $orderProducts=OrderProduct::where("order_id",$id)->get();
-        return view("orderProducts.show",compact('orderProducts'));
+        $products=[];
+        foreach ($orderProducts as $orderProduct)
+        {
+
+            $product=[Product::find($orderProduct->product_id),$orderProduct->quantity];
+            array_push($products,$product);
+        }
+
+        return view("orderProducts.show",compact('orderProducts','products'));
 
     }
 

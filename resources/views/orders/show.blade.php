@@ -11,6 +11,8 @@
         <div >Корпус: {{$order->housing}} </div>
         <div>Подъезд: {{$order->entrance}} </div>
         <div>Квартира: {{$order->apartment}} </div>
+
+
         <div >
             <form action="{{route("order.edit",$order->id)}}" method="get">
                 @csrf
