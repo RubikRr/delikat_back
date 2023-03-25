@@ -16,7 +16,9 @@ class OrderController extends Controller
     }
     public function show(Order $order)
     {
-        return view("orders.show",compact("order"));
+        $orderProducts=OrderProduct::where("order_id",$order->id)->get();
+
+        return view("orders.show",compact("order","orderProducts"));
     }
     public function store(Request $request)
     {

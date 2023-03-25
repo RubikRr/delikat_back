@@ -9,31 +9,16 @@ use function Sodium\add;
 
 class OrderProductController extends Controller
 {
-    function show($id)
-    {
-        $orderProducts=OrderProduct::where("order_id",$id)->get();
-        $products=[];
-        foreach ($orderProducts as $orderProduct)
-        {
 
-            $product=[Product::find($orderProduct->product_id),$orderProduct->quantity];
-            array_push($products,$product);
-        }
-
-        return view("orderProducts.show",compact('orderProducts','products'));
-
-    }
-
-    function showAll()
-    {
-        $orderProducts=$this->index();
-        //return $orderProducts;
-        return view("orderProducts.showAll",compact('orderProducts'));
-
-    }
     function index()
     {
         return OrderProduct::all();
+    }
+
+    function getName($id)
+    {
+        $productName=Product::find($id)->name;
+        return $productName;
     }
 
 

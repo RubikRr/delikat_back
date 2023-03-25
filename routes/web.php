@@ -58,7 +58,7 @@ Route::controller(OrderController::class)->group(function (){
 Route::controller(OrderProductController::class)->group(function (){
 
     Route::get("/orderProducts","index")->name("orderProduct.index");
-    Route::get("/orderProducts/show/{id}","show")->name("orderProduct.show");
+    Route::get("/orderProducts/showProducts","showProducts")->name("orderProduct.show");
     Route::get("/orderProducts/showAll","showAll")->name("orderProduct.showAll");
 });
 
