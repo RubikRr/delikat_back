@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Http\Requests\ProductRequest;
 use Illuminate\Database\Eloquent\Collection;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -22,15 +23,10 @@ class ProductController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store(ProductRequest $request)
     {
 
-        $product=$request->validate([
-            'name'=>'string',
-            'description'=>'string',
-            'image'=>'Image',
-            'price'=>'integer'
-        ]);
+        $product=$request->validated();
         $filename=$product['image']->getClientOriginalName();
 
         $image= $request->file("image")->getRealPath();
@@ -59,14 +55,9 @@ class ProductController extends Controller
         return view("products.edit",compact("product"));
     }
 
-    public  function update(Product $product){
+    public  function update(ProductRequest $request,Product $product){
 
-        $data=request()->validate([
-            "name"=>"string",
-            "description"=>"string",
-            "image"=>"Image",
-            "price"=>"integer"
-        ]);
+        $data=$request->validated();
         $filename=$data['image']->getClientOriginalName();
         $data['image']->move(Storage::path('/public/images/products/'),$filename);
         $data['image']="/images/products/".$filename;
