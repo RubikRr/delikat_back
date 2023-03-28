@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\OrderRequest;
 use App\Models\Customer;
 use App\Models\Order;
 use App\Models\OrderProduct;
@@ -20,18 +21,9 @@ class OrderController extends Controller
 
         return view("orders.show",compact("order","orderProducts"));
     }
-    public function store(Request $request)
+    public function store(OrderRequest $request)
     {
-        $dataOrder=$request->validate([
-            'first_name'=>'string',
-            'last_name'=>'string',
-            'phone_number'=>'string',
-            'street'=>'string',
-            'house'=>'Integer',
-            'housing'=>'Integer',
-            'entrance'=>'Integer',
-            'apartment'=>'Integer',
-        ]);
+        $dataOrder=$request->validated();
         $order=Order::create($dataOrder);
         $orderProducts=$request->validate([
             'order_products.*.product_id'=>'Integer',
