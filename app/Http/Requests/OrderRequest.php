@@ -25,6 +25,7 @@ class OrderRequest extends FormRequest
             'first_name'=>'string',
             'last_name'=>'string',
             'phone_number'=>'string',
+            'email'=>'required|email',
             'street'=>'string',
             'house'=>'Integer',
             'housing'=>'Integer',

@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string("first_name",30);
             $table->string("last_name",30);
             $table->string("phone_number",20);
+            $table->string('email');
             $table->string("street",30);
             $table->unsignedInteger("house");
             $table->unsignedInteger("housing");
