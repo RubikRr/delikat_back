@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\OrderRequest;
+use App\Mail\OrderMail;
 use App\Models\Customer;
 use App\Models\Order;
 use App\Models\OrderProduct;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class OrderController extends Controller
 {
@@ -25,6 +27,7 @@ class OrderController extends Controller
     {
         $dataOrder=$request->validated();
         $order=Order::create($dataOrder);
+        Mail::to($dataOrder["email"])->send(new OrderMail($order));
         $orderProducts=$request->validate([
             'order_products.*.product_id'=>'Integer',
             'order_products.*.quantity'=>'Integer',

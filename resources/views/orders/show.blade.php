@@ -4,16 +4,16 @@
 
 @section("order")
 
-    <div>Номер заказа:{{$order->id}}</div>
-    <div>Имя: {{$order->first_name}} </div>
-    <div>Фамилия: {{$order->last_name}} </div>
-    <div>Номер телефона: {{$order->phone_number}} </div>
-    <div>Почта: {{$order->email}} </div>
-    <div>Улица: {{$order->street}} </div>
-    <div>Дом: {{$order->house}} </div>
-    <div>Корпус: {{$order->housing}} </div>
-    <div>Подъезд: {{$order->entrance}} </div>
-    <div>Квартира: {{$order->apartment}} </div>
+        <div>Номер заказа:{{$order->id}}</div>
+        <div>Имя: {{$order->first_name}} </div>
+        <div>Фамилия: {{$order->last_name}} </div>
+        <div>Номер телефона: {{$order->phone_number}} </div>
+        <div>Почта: {{$order->email}} </div>
+        <div>Улица: {{$order->street}} </div>
+        <div>Дом: {{$order->house}} </div>
+        <div>Корпус: {{$order->housing}} </div>
+        <div>Подъезд: {{$order->entrance}} </div>
+        <div>Квартира: {{$order->apartment}} </div>
     <p></p>
 
     @foreach($orderProducts as $orderProduct)
