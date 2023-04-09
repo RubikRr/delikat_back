@@ -31,7 +31,7 @@ class OrderRequest extends FormRequest
             'housing'=>'Integer',
             'entrance'=>'Integer',
             'apartment'=>'Integer',
-            'total'=>'required|between:0,99999999.99'
+            'total'=>'decimal:0,99999999'
         ];
     }
 }

@@ -82,7 +82,7 @@ class ProductController extends Controller
                 'name'=>'Фэри',
 
                 'image'=>'/images/products/thumbnail/corgi_samurai.png',
-                'price'=>76,
+                'price'=>999999.99,
                 'description'=>"Крутой средство для мытья посуды"
             ],
             [

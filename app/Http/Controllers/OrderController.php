@@ -23,11 +23,15 @@ class OrderController extends Controller
 
         return view("orders.show",compact("order","orderProducts"));
     }
+
+    public function CreateOrderProducts($orderProducts)
+    {
+
+    }
     public function store(OrderRequest $request)
     {
         $dataOrder=$request->validated();
         $order=Order::create($dataOrder);
-        Mail::to($dataOrder["email"])->send(new OrderMail($order));
         $orderProducts=$request->validate([
             'order_products.*.product_id'=>'Integer',
             'order_products.*.quantity'=>'Integer',
