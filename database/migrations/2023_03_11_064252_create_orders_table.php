@@ -22,8 +22,7 @@ return new class extends Migration
             $table->unsignedInteger("housing");
             $table->unsignedInteger("entrance");
             $table->unsignedInteger("apartment");
-
-
+            $table->decimal('total', $precision = 12, $scale = 2);
             $table->timestamps();
             $table->softDeletes();
         });

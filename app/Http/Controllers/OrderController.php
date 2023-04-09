@@ -42,9 +42,10 @@ class OrderController extends Controller
             ];
             OrderProduct::create($orderProduct);
         }
+        redirect()->route("order.showAll");
         return response('CAPIBARA', 200)
             ->header('Content-Type', 'text/plain');
-        return redirect()->route("order.showAll");
+        
     }
     public function edit()
     {
@@ -72,7 +73,8 @@ class OrderController extends Controller
                 "house"=>292,
                 "housing"=>1,
                 "entrance"=>6,
-                "apartment"=>79
+                "apartment"=>79,
+                'total'=>255.55
             ],
             [
                 "first_name"=>"Эрик",
@@ -83,7 +85,8 @@ class OrderController extends Controller
                 "house"=>217,
                 "housing"=>2,
                 "entrance"=>3,
-                "apartment"=>51
+                "apartment"=>51,
+                'total'=>1231.88
             ],
             [
                 "first_name"=>"Станислав",
@@ -94,7 +97,8 @@ class OrderController extends Controller
                 "house"=>74,
                 "housing"=>3,
                 "entrance"=>1,
-                "apartment"=>5
+                "apartment"=>5,
+                'total'=>15.99
             ],
             [
                 "first_name"=>"Алина",
@@ -105,7 +109,8 @@ class OrderController extends Controller
                 "house"=>52,
                 "housing"=>1,
                 "entrance"=>3,
-                "apartment"=>80
+                "apartment"=>80,
+                'total'=>512.55
             ]
         ];
         foreach ($examples as $example)

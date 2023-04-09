@@ -21,16 +21,8 @@
         <div>Количество{{$orderProduct->quantity}}</div>
         <p></p>
     @endforeach
-
-    <div>
-        <form action="{{route("order.edit",$order->id)}}" method="get">
-            @csrf
-            <div>
-                <input type="submit" value="Изменить">
-            </div>
-
-        </form>
-    </div>
+    <div>Всего: {{$order->total}} </div>
+   
 
     <div>
         <form action="{{route("order.delete",$order->id)}}" method="post">
