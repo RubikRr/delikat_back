@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Artisan;
 class MainController extends Controller
 {
     public function index(){
-        return view("layouts.main");
+            return view("layouts.main");
     }
 
     public function CreateExamples()
