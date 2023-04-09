@@ -20,7 +20,7 @@
         <div >
             <label for="number">Цена *</label></div>
         <div >
-            <input  type="number"  name="price" min="1" max="1000000" placeholder="100" required>
+            <input  type="number"  name="price" min="1" max="999999.99" placeholder="50.25" step="0.01"  required>
         </div>
 
         <div >
