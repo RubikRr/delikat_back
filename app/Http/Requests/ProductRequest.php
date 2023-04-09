@@ -25,7 +25,7 @@ class ProductRequest extends FormRequest
             'name'=>'string',
             'description'=>'string',
             'image'=>'Image',
-            'price'=>'integer'
+             'price'=>'required|between:0,999999.99'
         ];
     }
 }
