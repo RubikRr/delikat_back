@@ -58,10 +58,17 @@ class ProductController extends Controller
     public  function update(ProductRequest $request,Product $product){
 
         $data=$request->validated();
-        $filename=$data['image']->getClientOriginalName();
-        $data['image']->move(Storage::path('/public/images/products/'),$filename);
-        $data['image']="/images/products/".$filename;
+       $filename=$data['image']->getClientOriginalName();
 
+        $image= $request->file("image")->getRealPath();
+        $image_resize = Image::make($image);
+        $image_resize->fit(500);
+        $image_resize->save(Storage::path('/public/images/products/').'thumbnail/'.$filename);
+
+        $data['image']->move(Storage::path('/public/images/products/').'original/',$filename);
+
+
+        $data['image']="/images/products/thumbnail/".$filename;
         $product->update($data);
         return redirect()->route("product.show",$product->id);
     }
@@ -81,14 +88,14 @@ class ProductController extends Controller
             [
                 'name'=>'Фэри',
 
-                'image'=>'/images/products/thumbnail/corgi_samurai.png',
+                'image'=>'/images/products/thumbnail/fairy.jpg',
                 'price'=>999999.99,
                 'description'=>"Крутой средство для мытья посуды"
             ],
             [
                 'name'=>'Порошок',
 
-                'image'=>'/images/products/thumbnail/corgi.png',
+                'image'=>'/images/products/thumbnail/poroshok.webp',
                 'price'=>100.4,
                 'description'=>"Чистая одежда"
 
@@ -96,14 +103,14 @@ class ProductController extends Controller
             [
                 'name'=>'Подгузники',
 
-                'image'=>'/images/products/thumbnail/wolf.png',
+                'image'=>'/images/products/thumbnail/pampers.jpg',
                 'price'=>200.99,
-                'description'=>"Для спиногрызов"
+                'description'=>"Для милых детишек"
             ],
             [
                 'name'=>'Бритва',
 
-                'image'=>'/images/products/thumbnail/corgi.png',
+                'image'=>'/images/products/thumbnail/hydro_5_skin_3.jpg',
                 'price'=>1000.99,
                 'description'=>"Джилет лучще для мужчины нет"
             ]

@@ -10,6 +10,18 @@
         <div >
             <input  type="text"  name="name" placeholder="Введите название продукта" required autofocus>
         </div>
+        <div>
+            <label for="category">Категория продукта *</label>
+        </div>
+        <div>
+        <select>
+            <option>Бытовая химия</option>
+            <option>Ватно-бумажная продукция</option>
+            <option>Гигиена полости рта</option>
+            <option>Товары для детской гигиены</option>
+            <option>Товары для мужского бритья</option>
+        </select>
+        </div>
 
         <div >
             <label  for="image">Картинка *</label></div>
