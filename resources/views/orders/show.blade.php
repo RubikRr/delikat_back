@@ -3,7 +3,6 @@
 
 
 @section("order")
-
         <div>Номер заказа:{{$order->id}}</div>
         <div>Имя: {{$order->first_name}} </div>
         <div>Фамилия: {{$order->last_name}} </div>
