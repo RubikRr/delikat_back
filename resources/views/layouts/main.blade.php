@@ -12,16 +12,21 @@
     <title>Document</title>
 </head>
 <body >
-    <nav >
-        <ul class="nav nav-tabs justify-content-center">
-            <li  class="nav-item"><a class="nav-link " href="{{route("main.index")}}">Главная</a></li>
-            <li  class="nav-item"><a class="nav-link" href="{{route("product.showAll")}}">Продукты</a>
-            <li  class="nav-item"> <a  class="nav-link"href="{{route("order.showAll")}}">Заказы</a>
-        </ul>
-    </nav>
+    <div class="sticky-top">   
+            <nav>
+                <ul class="nav nav-tabs justify-content-center">
+                    <li  class="nav-item"><a class="nav-link link-dark" href="{{route("main.index")}}">Главная</a></li>
+                    <li  class="nav-item"><a class="nav-link link-dark" href="{{route("product.showAll")}}">Продукты</a>
+                    <li  class="nav-item"> <a  class="nav-link link-dark"href="{{route("order.showAll")}}">Заказы</a>
+                </ul>
+            </nav>
+    </div>
+
+    @yield("product")
+    
 
     @yield("order")
-    @yield("product")
+
 
 
 

@@ -1,7 +1,7 @@
 @extends("layouts.main")
 @section("product")
             
-            <div class="form-group row sticky-top" style="margin:10px ;">
+            <div class="form-group row" style="margin-top:10px ;">
                 <a class="btn btn-success col-sm-2"  href="{{route("product.create")}}">Создать продукт</a>
                     <div class="col-sm-10" style="width: 500px;">
                         <select class="form-select" >
