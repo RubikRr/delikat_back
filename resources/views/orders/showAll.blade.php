@@ -4,7 +4,7 @@
 <table class="table table-bordered table-hover table-responsive">
     <thead>
         <tr>
-            <th>Информация</th>
+            <th style="width:200px ;">Инф-ия о заказе</th>
             <th>Фамилия</th>
             <th>Номер телефона</th>
             <th>Дата</th>
