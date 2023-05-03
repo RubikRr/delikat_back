@@ -112,7 +112,7 @@ class ProductController extends Controller
 
                 'image'=>'/images/products/thumbnail/hydro_5_skin_3.jpg',
                 'price'=>1000.99,
-                'description'=>"Джилет лучще для мужчины нет"
+                'description'=>"Джилет лучше для мужчины нет"
             ]
         ];
         foreach ($examples as $example)

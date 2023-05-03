@@ -5,7 +5,7 @@
                 <a class="btn btn-success col-sm-2"  href="{{route("product.create")}}">Создать продукт</a>
                     <div class="col-sm-10" style="width: 500px;">
                         <select class="form-select" >
-                            <option>Бытовая химия</option>
+                            <a href="{{route("main.index")}}"> <option>Бытовая химия</option></a>
                             <option>Ватно-бумажная продукция</option>
                             <option>Гигиена полости рта</option>
                             <option>Товары для детской гигиены</option>

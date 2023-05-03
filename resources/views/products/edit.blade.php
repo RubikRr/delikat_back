@@ -4,26 +4,56 @@
         <form enctype="multipart/form-data" action="{{route("product.update",$product->id)}}" method="post">
             @csrf
             @method("patch")
-            <div> <label >Назваение</label></div>
-            <dev>
-                <input type="text" name="name" placeholder="Name"  autocomplete="off"  value="{{$product->name}}">
-            </dev>
-            <div ><label  for="image">Картинка *</label></div>
-            <div>
-                <input  type="file" name="image" placeholder="Картинка" accept=".png,.jpeg,.jpg,.webp" value="{{$product->image}}" required>
-            </div>
+ <fieldset style="margin:10px;color">
+            <legend >Изменение товара</legend>
 
-            <div><label>Цена</label></div>
-            <div>
-                <input type="number" name="price"  placeholder="Цена"  value="{{$product->price}}">
-            </div>
 
-            <div> <label>Описание</label></div>
-            <div>
-                <textarea name="description"placeholder="Описание">{{$product->description}}</textarea>
-            </div>
+                <div class="form-group row" style="margin:10px;">
+                    <label for="name" class="col-sm-2">Имя *</label>     
+                    <div class="col-sm-10" style="width: 500px;">
+                        <input  type="text" class="form-control" name="name" value="{{$product->name}}" placeholder="Введите название продукта" required autofocus> 
+                    </div>                 
+                </div>
 
-            <div><input type="submit"  value="Принять изменения"></div>
+                <div class="form-group row" style="margin:10px ;">
+                    <label for="category" class="col-sm-2">Категория продукта *</label>
+                    <div class="col-sm-10" style="width: 500px;">
+                        <select class="form-select">
+                            <option value="Бытовая химия">Бытовая химия</option>
+                            <option value="Ватно-бумажная продукция">Ватно-бумажная продукция</option>
+                            <option value="Гигиена полости рта">Гигиена полости рта</option>
+                            <option value="Товары для детской гигиены">Товары для детской гигиены</option>
+                            <option value="Товары для мужского бритья">Товары для мужского бритья</option>
+                        </select> 
+                    </div> 
+                </div>
+
+
+                <div class="form-group row" style="margin:10px ;">
+                    <label class="col-sm-2" for="image">Картинка *</label>
+                    <div class="col-sm-10" style="width: 500px;">
+                        <input  class="form-control"  type="file" name="image" value="{{$product->image}}" placeholder="Картинка" accept=".png,.jpeg,.jpg,.webp" required>
+                    </div>
+                </div>
+
+                <div class="form-group row" style="margin:10px ">
+                    <label class="col-sm-2" for="image">Цена *</label>
+                    <div class="col-sm-10 input-group flex-nowrap" style="width:500px;">
+                         <span class="input-group-text">9.99 ₽</span>
+                         <input  type="number" class="form-control" value="{{$product->price}}" name="price" min="1" max="999999.99"step="0.01"  required>
+                    </div>
+                </div>
+
+                  
+
+
+                <div class="form-floating" style="margin: 10px; width: 710px;">
+                     <textarea class="form-control" style="height: 100px" placeholder="Описание" name="description"  id="floatingTextarea">{{$product->description}}</textarea>
+                     <label for="floatingTextarea">Описание</label>
+                 </div>
+
+
+            <button type="submit" class="btn btn-success" style="margin:10px">Принять изменения</button>
         </form>
     </div>
 @endsection

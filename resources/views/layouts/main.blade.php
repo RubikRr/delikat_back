@@ -13,7 +13,7 @@
 </head>
 <body >
     <div class="sticky-top">   
-            <nav>
+            <nav style="background-color:Snow;">
                 <ul class="nav nav-tabs justify-content-center">
                     <li  class="nav-item"><a class="nav-link link-dark" href="{{route("main.index")}}">Главная</a></li>
                     <li  class="nav-item"><a class="nav-link link-dark" href="{{route("product.showAll")}}">Продукты</a>
