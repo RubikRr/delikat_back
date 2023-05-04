@@ -16,12 +16,12 @@
                 <div class="form-group row" style="margin:10px ;">
                     <label for="category" class="col-sm-2">Категория продукта *</label>
                     <div class="col-sm-10" style="width: 500px;">
-                        <select class="form-select" >
-                            <option value="Бытовая химия">Бытовая химия</option>
-                            <option value="Ватно-бумажная продукция">Ватно-бумажная продукция</option>
-                            <option value="Гигиена полости рта">Гигиена полости рта</option>
-                            <option value="Товары для детской гигиены">Товары для детской гигиены</option>
-                            <option value="Товары для мужского бритья">Товары для мужского бритья</option>
+                        <select class="form-select" name="category" >
+                            <option value=1>Бытовая химия</option>
+                            <option value=2>Ватно-бумажная продукция</option>
+                            <option value=3>Гигиена полости рта</option>
+                            <option value=4>Товары для детской гигиены</option>
+                            <option value=5>Товары для мужского бритья</option>
                         </select> 
                     </div> 
                 </div>

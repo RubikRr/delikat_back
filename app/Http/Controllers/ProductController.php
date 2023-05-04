@@ -89,12 +89,13 @@ class ProductController extends Controller
                 'name'=>'Фэри',
 
                 'image'=>'/images/products/thumbnail/fairy.jpg',
+                "category"=>1,
                 'price'=>999999.99,
                 'description'=>"Крутой средство для мытья посуды"
             ],
             [
                 'name'=>'Порошок',
-
+                "category"=>1,
                 'image'=>'/images/products/thumbnail/poroshok.webp',
                 'price'=>100.4,
                 'description'=>"Чистая одежда"
@@ -102,14 +103,14 @@ class ProductController extends Controller
             ],
             [
                 'name'=>'Подгузники',
-
+                "category"=>4,
                 'image'=>'/images/products/thumbnail/pampers.jpg',
                 'price'=>200.99,
                 'description'=>"Для милых детишек"
             ],
             [
                 'name'=>'Бритва',
-
+                "category"=>5,
                 'image'=>'/images/products/thumbnail/hydro_5_skin_3.jpg',
                 'price'=>1000.99,
                 'description'=>"Джилет лучше для мужчины нет"

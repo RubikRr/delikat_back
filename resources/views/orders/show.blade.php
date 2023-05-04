@@ -3,32 +3,49 @@
 
 
 @section("order")
-        <div>Номер заказа:{{$order->id}}</div>
-        <div>Имя: {{$order->first_name}} </div>
-        <div>Фамилия: {{$order->last_name}} </div>
-        <div>Номер телефона: {{$order->phone_number}} </div>
-        <div>Почта: {{$order->email}} </div>
-        <div>Улица: {{$order->street}} </div>
-        <div>Дом: {{$order->house}} </div>
-        <div>Корпус: {{$order->housing}} </div>
-        <div>Подъезд: {{$order->entrance}} </div>
-        <div>Квартира: {{$order->apartment}} </div>
-    <p></p>
 
-    @foreach($orderProducts as $orderProduct)
-        <div>Название продукта:{{(new OrderProductController)->getName($orderProduct->product_id)}}</div>
-        <div>Количество{{$orderProduct->quantity}}</div>
-        <p></p>
-    @endforeach
-    <div>Всего: {{$order->total}} </div>
-   
-
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Номер заказа:{{$order->id}}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Номер: {{$order->phone_number}}</h6>
+                <p class="card-text">Заказчик:{{$order->last_name}} {{$order->first_name}}    
+                    <br>Почта: {{$order->email}}
+                    <br>Улица: {{$order->street}}
+                    <br> Дом: {{$order->house}}
+                    <br> Корпус: {{$order->housing}}
+                    <br> Подъезд: {{$order->entrance}}
+                    <br> Квартира: {{$order->apartment}}
+                 </p>
+            </div>
+        </div>
+    <table class="table table-bordered table-hover table-responsive">
+    <thead>
+        <tr>
+            <th>Продукты</th>
+            <th>Кол-во</th>
+        </tr>
+    </thead>    
+    <tbody>
+         @foreach($orderProducts as $orderProduct)
+          <tr>
+             <td>{{(new OrderProductController)->getName($orderProduct->product_id)}}</td>
+             <td>{{$orderProduct->quantity}} шт.</td>
+         </tr>
+          @endforeach
+    </tbody>
+     <tfoot>
+    <tr>
+      <td>Итого</td>
+      <td>{{$order->total}} ₽</td>
+    </tr>
+  </tfoot>
+</table>
     <div>
         <form action="{{route("order.delete",$order->id)}}" method="post">
             @csrf
             @method("delete")
             <div>
-                <input type="submit" value="Удалить">
+                <input class="btn btn-danger" type="submit" value="Удалить">
             </div>
 
         </form>

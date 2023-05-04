@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\OrderProduct;
 use App\Models\Product;
+use App\Models\ProductCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
 
@@ -15,6 +16,7 @@ class MainController extends Controller
 
     public function CreateExamples()
     {
+        (new ProductCategoryController)->CreateExm();
         (new ProductController)->CreateExm();
         (new OrderController)->CreateExm();
         (new OrderProductController)->CreateExm();
