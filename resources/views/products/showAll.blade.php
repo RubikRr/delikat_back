@@ -1,18 +1,23 @@
 @extends("layouts.main")
 @section("product")
-            
-            <div class="form-group row" style="margin-top:10px ;">
-                <a class="btn btn-success col-sm-2"  href="{{route("product.create")}}">Создать продукт</a>
-                    <div class="col-sm-10" style="width: 500px;">
-                        <select class="form-select" >
-                            <a href="{{route("main.index")}}"> <option>Бытовая химия</option></a>
-                            <option>Ватно-бумажная продукция</option>
-                            <option>Гигиена полости рта</option>
-                            <option>Товары для детской гигиены</option>
-                            <option>Товары для мужского бритья</option>
-                        </select> 
-                    </div> 
+   
+
+            <div  style="margin-top:10px;margin-right:146px ; float: right;">
+                <a class="btn btn-success col-sm-2" style="width: 400px"  href="{{route("product.create")}}">Создать продукт</a>
             </div>
+
+              <ul class="mmenuu">
+                <li><a href={{route("product.showAll")}}>Все продукты</a>
+                    <ul class="ssubmenuu">
+                  
+                        <li><a href={{route("product.showCategories",1)}}>Бытовая химия</a></li>
+                        <li><a href={{route("product.showCategories",2)}}>Ватно-бумажная продукция</a></li>
+                        <li><a href={{route("product.showCategories",3)}}>Гигиена полости рта</a></li>
+                        <li><a href={{route("product.showCategories",4)}}>Товары для детской гигиены</a></li>
+                        <li><a href={{route("product.showCategories",5)}}>Товары для мужского бритья</a></li>
+                    </ul>
+                </li>
+                </ul>
 
             <div class=" row row-cols-1 row-cols-md-3 g-4 " style=" margin: 0px;padding-left:135px;" >
                                 

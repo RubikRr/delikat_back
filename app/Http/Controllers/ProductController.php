@@ -127,6 +127,15 @@ class ProductController extends Controller
         $products=$this->index();
         return view("products.showAll",compact("products"));
     }
+     public function ShowProductsCategories($id){
+        $products=Product::where("category","=",$id)->get();
+        return view("products.showAll",compact("products"));
+    }
+
+    public function GetProductsOnCategories($id){
+        $products=Product::where("category","=",$id)->get();
+        return $products;
+    }
 }
 
 

@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\ProductCategoryController;
 
 
 //работают
@@ -20,7 +21,9 @@ Route::controller(MainController::class)->group(function (){
 
 });
 
-
+Route::controller(ProductCategoryController::class)->group(function (){
+Route::get("/productCategories","index")->name("category.index");
+});
 
 Route::controller(ProductController::class)->group(function (){
     //CRUD
@@ -36,6 +39,8 @@ Route::controller(ProductController::class)->group(function (){
     Route::get('/products/showFields/{product}','showFields')->name("product.showFields");
     Route::get('/products/restore/{product}','restore')->withTrashed();
     Route::get("/products/showAll",'ShowAll')->name("product.showAll");
+    Route::get("/products/showCategories/{index}",'ShowProductsCategories')->name("product.showCategories");
+     Route::get("/products/getCategories/{index}",'GetProductsOnCategories')->name("product.getProductsOnCategories");
 });
 
 

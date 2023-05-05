@@ -13,24 +13,35 @@ class ProductCategoryController extends Controller
         return $productCategory;
     }
 
+    function index()
+    {
+       return ProductCategory::all();
+
+    }
+
      public function CreateExm()
     {
         $examples=[
             [
                 
-                'category'=>"Бытовая химия"
+                'category'=>"Бытовая химия",
+                 'image'=>'/images/categories/HC.webp'
             ],
             [
-                'category'=>"Ватно-бумажная продукция"
+                'category'=>"Ватно-бумажная продукция",
+                 'image'=>'/images/categories/TB.webp'
             ],
             [
-                'category'=>"Гигиена полости рта"
+                'category'=>"Гигиена полости рта",
+                 'image'=>'/images/categories/PR.webp'
             ],
             [
-               'category'=>"Товары для детской гигиены"
+               'category'=>"Товары для детской гигиены",
+                'image'=>'/images/categories/DG.jpg'
             ],
             [
-               'category'=>"Товары для мужского бриться"
+               'category'=>"Товары для мужского бриться",
+                'image'=>'/images/categories/MB.webp'
             ]
         ];
         foreach ($examples as $example)
