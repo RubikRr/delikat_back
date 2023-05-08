@@ -53,6 +53,7 @@
             
                 @endforeach
             </div>
+            <div>Всего:</div>
 
 
         

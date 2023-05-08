@@ -35,7 +35,17 @@
          </tr>
           @endforeach
     </tbody>
+     <tfoot>
+    <tr>
+      <td>Итого</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>{{$sum}} ₽</td>
+    </tr>
+  </tfoot>
 </table>
-   
+       
+
    
 @endsection

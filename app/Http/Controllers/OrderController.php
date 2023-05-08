@@ -61,10 +61,19 @@ class OrderController extends Controller
         $order->delete();
         return redirect()->route("order.showAll");
     }
+    public function GetSumm ($orders)
+    {
+        $ans=0;
+        foreach($orders as $order) {
+            $ans+=$order->total;
+        }
+        return $ans;
+    }
     public function showAll()
     {
         $orders=$this->index();
-        return view("orders.showAll",compact("orders"));
+        $sum=$this->GetSumm($orders);
+        return view("orders.showAll",compact("orders","sum"));
     }
     public function getOrders($index)
     {
@@ -74,19 +83,23 @@ class OrderController extends Controller
                     switch ($index) {
                 case 1:
                     $orders=Order::whereDate('created_at', Carbon::today()->toDateString())->get();
-                    return view("orders.showAll",compact("orders"));
+                     $sum=$this->GetSumm($orders);
+                    return view("orders.showAll",compact("orders","sum"));
                     break;
                 case 2:
                     $orders=Order::whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->get();;
-                return view("orders.showAll",compact("orders"));
+                     $sum=$this->GetSumm($orders);
+                    return view("orders.showAll",compact("orders","sum"));
                     break;
                 case 3:
                     $orders=Order::whereBetween('created_at', [Carbon::now()->startOfMonth(), Carbon::now()->endOfMonth()])->get();
-                return view("orders.showAll",compact("orders"));
+                     $sum=$this->GetSumm($orders);
+                    return view("orders.showAll",compact("orders","sum"));
                     break;
                 case 4:
                     $orders=Order::whereYear('created_at', Carbon::today()->year)->get();
-                return view("orders.showAll",compact("orders"));
+                    $sum=$this->GetSumm($orders);
+                    return view("orders.showAll",compact("orders","sum"));
                     break;
             }
        
