@@ -3,9 +3,9 @@
    
 
             <div  style="margin-top:10px;">
-                <a class="btn btn-success col-sm-2" style="width: 400px"  href="{{route("product.create")}}">Создать продукт</a>
+             
             </div>
-
+            <!--
               <ul class="mmenuu">
                 <li><a href={{route("product.showAll")}}>Все продукты</a>
                     <ul class="ssubmenuu">
@@ -18,11 +18,13 @@
                     </ul>
                 </li>
                 </ul>
+            -->
                 <div class="form-group row" style="margin:10px ;">
+                       <a class="btn btn-success col-sm-2" href="{{route("product.create")}}">Создать продукт</a>
                     <div class="col-sm-10" style="width: 500px;">
             <select class="form-select" name="category" onchange="window.location.href = this.options[this.selectedIndex].value" >
                             <option value="">Фильтр</option>
-                            <option value={{route("product.showAll")}}>Все продукты</option>
+                            <option value={{route("product.showAll")}}>Все товары</option>
                             <option value={{route("product.showCategories",1)}}>Бытовая химия</option>
                             <option value={{route("product.showCategories",2)}}>Ватно-бумажная продукция</option>
                             <option value={{route("product.showCategories",3)}}>Гигиена полости рта</option>
