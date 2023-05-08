@@ -58,6 +58,7 @@ Route::controller(OrderController::class)->group(function (){
 
     Route::get('/orders/show/{order}/edit','edit')->name("order.edit");
     Route::patch('/orders/{order}','update')->name("order.update");
+    Route::get("orders/date/{index}","getOrders")->name("orders.getDates");
 });
 //Order_product
 Route::controller(OrderProductController::class)->group(function (){

@@ -10,6 +10,7 @@ use App\Models\OrderProduct;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Carbon\Carbon;
 
 class OrderController extends Controller
 {
@@ -64,6 +65,31 @@ class OrderController extends Controller
     {
         $orders=$this->index();
         return view("orders.showAll",compact("orders"));
+    }
+    public function getOrders($index)
+    {
+
+        $mytime = Carbon::now();
+         
+                    switch ($index) {
+                case 1:
+                    $orders=Order::whereDate('created_at', Carbon::today()->toDateString())->get();
+                    return view("orders.showAll",compact("orders"));
+                    break;
+                case 2:
+                    $orders=Order::whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->get();;
+                return view("orders.showAll",compact("orders"));
+                    break;
+                case 3:
+                    $orders=Order::whereBetween('created_at', [Carbon::now()->startOfMonth(), Carbon::now()->endOfMonth()])->get();
+                return view("orders.showAll",compact("orders"));
+                    break;
+                case 4:
+                    $orders=Order::whereYear('created_at', Carbon::today()->year)->get();
+                return view("orders.showAll",compact("orders"));
+                    break;
+            }
+       
     }
     public function CreateExm()
     {

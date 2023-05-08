@@ -2,7 +2,7 @@
 @section("product")
    
 
-            <div  style="margin-top:10px;margin-right:146px ; float: right;">
+            <div  style="margin-top:10px;">
                 <a class="btn btn-success col-sm-2" style="width: 400px"  href="{{route("product.create")}}">Создать продукт</a>
             </div>
 
@@ -18,8 +18,20 @@
                     </ul>
                 </li>
                 </ul>
-
-            <div class=" row row-cols-1 row-cols-md-3 g-4 " style=" margin: 0px;padding-left:135px;" >
+                <div class="form-group row" style="margin:10px ;">
+                    <div class="col-sm-10" style="width: 500px;">
+            <select class="form-select" name="category" onchange="window.location.href = this.options[this.selectedIndex].value" >
+                            <option value="">Фильтр</option>
+                            <option value={{route("product.showAll")}}>Все продукты</option>
+                            <option value={{route("product.showCategories",1)}}>Бытовая химия</option>
+                            <option value={{route("product.showCategories",2)}}>Ватно-бумажная продукция</option>
+                            <option value={{route("product.showCategories",3)}}>Гигиена полости рта</option>
+                            <option value={{route("product.showCategories",4)}}>Товары для детской гигиены</option>
+                            <option value={{route("product.showCategories",5)}}>Товары для мужского бритья</option>
+                        </select> 
+                            </div> 
+                </div>
+            <div class=" row row-cols-1 row-cols-md-3 g-4 " style=" margin: 0px;padding-left:50px;" >
                                 
                 @foreach($products as $product)
                 <div class="col" >
