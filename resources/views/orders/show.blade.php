@@ -40,6 +40,18 @@
     </tr>
   </tfoot>
 </table>
+<div style="display: flex; justify-content: space-between;">
+    
+ <div>
+        <form enctype="multipart/form-data" action="{{route("order.decrease",$order->id)}}" method="post">
+            @csrf
+            @method("patch")
+            <div>
+                <input class="btn btn-dark" type="submit" value="Подтвердить заказ">
+            </div>
+
+        </form>
+    </div>
     <div>
         <form action="{{route("order.delete",$order->id)}}" method="post">
             @csrf
@@ -50,5 +62,6 @@
 
         </form>
     </div>
+</div>
 
 @endsection

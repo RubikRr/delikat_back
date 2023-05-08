@@ -33,22 +33,22 @@ class OrderProductController extends Controller
             [
                 'order_id'=>2,
                 'product_id'=>2,
-                'quantity'=>100
+                'quantity'=>75
             ],
             [
                 'order_id'=>3,
                 'product_id'=>1,
-                'quantity'=>331
+                'quantity'=>24
             ],
             [
                 'order_id'=>4,
                 'product_id'=>3,
-                'quantity'=>534
+                'quantity'=>35
             ],
             [
                 'order_id'=>4,
                 'product_id'=>4,
-                'quantity'=>5134
+                'quantity'=>31
             ]
         ];
         foreach ($examples as $example)

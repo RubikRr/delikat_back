@@ -6,7 +6,8 @@
         <div class="card-body h-100 text-center">
             <h5 class="card-title">{{$product->name}}</h5>
             <p class="card-text">{{(new ProductCategoryController)->getCategory($product->category)}}</p>
-            <p class="card-text">{{$product->price}}</p>
+            <p class="card-text">Цена:{{$product->price}}</p>
+             <p class="card-text">Кол-во:{{$product->quantity}}</p>
             <p class="card-text">{{$product->description}}</p>
             <div style="display: flex;justify-content: space-around;">
           

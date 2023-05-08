@@ -42,6 +42,7 @@
                         <div class="card-body">
                             <h5 class="card-title">{{$product->name}}</h5>
                             <p class="card-text">{{$product->description}} </p>
+                            <p class="card-text">Кол-во:{{$product->quantity}} </p>
 
                             <a class="btn btn-primary" style="background-color: gre" href="{{route("product.show" , $product->id)}}">Редактировать</a>
 
@@ -53,7 +54,6 @@
             
                 @endforeach
             </div>
-            <div>Всего:</div>
 
 
         

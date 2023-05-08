@@ -75,6 +75,33 @@ class OrderController extends Controller
         $sum=$this->GetSumm($orders);
         return view("orders.showAll",compact("orders","sum"));
     }
+
+    public function DecreaseQuantityProducts(Order $order)
+    {
+        if ($order['confirmation'] == 1) {
+            //return redirect()->route("order.show",compact("order"));
+            return redirect()->route("order.showAll");
+        }
+        else
+        {
+       
+        $orderProducts=OrderProduct::where("order_id","=","$order->id")->get();
+         foreach ($orderProducts as $orderProduct){
+                $pr_id=$orderProduct['product_id'];
+                $product=Product::find($pr_id);
+                $quantity=$orderProduct['quantity'];
+                $product["quantity"]=$product["quantity"]-$quantity;
+                $product->update();
+
+            }
+        $order['confirmation']=true;
+        $order->update();
+        return redirect()->route("order.showAll");
+
+        }
+
+        //return redirect()->route("order.show",compact("order"));
+    }
     public function getOrders($index)
     {
 
@@ -112,6 +139,7 @@ class OrderController extends Controller
                 "last_name"=>"Чакалов",
                 "phone_number"=>"89194273621",
                 "email"=>"margiev.erik@list.ru",
+                "confirmation"=>false,
                 "street"=>"Коста",
                 "house"=>292,
                 "housing"=>1,
@@ -124,6 +152,7 @@ class OrderController extends Controller
                 "last_name"=>"Маргиев",
                 "phone_number"=>"89187891452",
                 "email"=>"margiev.erik@list.ru",
+                "confirmation"=>false,
                 "street"=>"Коста",
                 "house"=>217,
                 "housing"=>2,
@@ -137,6 +166,7 @@ class OrderController extends Controller
                 "phone_number"=>"89197891436",
                 "email"=>"margiev.erik@list.ru",
                 "street"=>"Джанаева",
+                "confirmation"=>false,
                 "house"=>74,
                 "housing"=>3,
                 "entrance"=>1,
@@ -148,6 +178,7 @@ class OrderController extends Controller
                 "last_name"=>"Мамсурова",
                 "phone_number"=>"89184127963",
                 "email"=>"margiev.erik@list.ru",
+                "confirmation"=>false,
                 "street"=>"Ватутина",
                 "house"=>52,
                 "housing"=>1,

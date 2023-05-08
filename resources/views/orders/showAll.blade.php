@@ -19,6 +19,7 @@
             <th>Имя</th>
             <th>Номер телефона</th>
             <th>Дата(гг-мм-дд)</th>
+            <th>Подтв.</th>
             <th>Сумма</th>
              <th style="width:200px ;">Инф-ия о заказе</th>
         </tr>
@@ -30,6 +31,7 @@
              <td>{{$order->first_name}}</td>
              <td>{{$order->phone_number}}</td>
              <td>{{$order->created_at}}</td>
+             <td>{{$order->confirmation}}</td>
              <td>{{$order->total}}</td>
              <td><a href="{{route('order.show',$order->id)}}">Подробнее</a></td>
          </tr>
@@ -38,6 +40,7 @@
      <tfoot>
     <tr>
       <td>Итого</td>
+        <td></td>
         <td></td>
         <td></td>
         <td></td>

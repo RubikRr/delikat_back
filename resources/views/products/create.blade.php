@@ -35,10 +35,18 @@
                 </div>
 
                 <div class="form-group row" style="margin:10px ">
-                    <label class="col-sm-2" for="image">Цена *</label>
+                    <label class="col-sm-2" for="price">Цена *</label>
                     <div class="col-sm-10 input-group flex-nowrap" style="width:500px;">
                          <span class="input-group-text">9.99 ₽</span>
                          <input  type="number" class="form-control" name="price" min="1" max="999999.99"step="0.01"  required>
+                    </div>
+                </div>
+
+                <div class="form-group row" style="margin:10px ">
+                    <label class="col-sm-2" for="image">Количество</label>
+                    <div class="col-sm-10 input-group flex-nowrap" style="width:500px;">
+                         <span class="input-group-text">100</span>
+                         <input  type="number" class="form-control" name="quantity" min="1" max="100000"step="1"  required>
                     </div>
                 </div>
 
