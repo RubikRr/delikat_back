@@ -43,7 +43,7 @@
                 </div>
 
                 <div class="form-group row" style="margin:10px ">
-                    <label class="col-sm-2" for="image">Количество</label>
+                    <label class="col-sm-2" for="quantity">Количество</label>
                     <div class="col-sm-10 input-group flex-nowrap" style="width:500px;">
                          <span class="input-group-text">100</span>
                          <input  type="number" class="form-control" name="quantity" min="1" max="100000"step="1"  required>

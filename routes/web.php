@@ -43,6 +43,10 @@ Route::controller(ProductController::class)->group(function (){
      Route::get("/products/getCategories/{index}",'GetProductsOnCategories')->name("product.getProductsOnCategories");
 });
 
+Route::get("/getLogo",function(){
+    return "/images/delikat_rebr.jpg";
+
+});
 
 
 Route::controller(OrderController::class)->group(function (){

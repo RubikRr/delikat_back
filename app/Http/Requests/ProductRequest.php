@@ -24,6 +24,7 @@ class ProductRequest extends FormRequest
         return [
             'name'=>'string',
             'category'=>'Integer',
+            'quantity'=>'Integer',
             'description'=>'string',
             'image'=>'Image',
             'price'=>'decimal:0,999999'
