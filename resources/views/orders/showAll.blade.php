@@ -1,4 +1,4 @@
-@extends("layouts.main")
+@extends('layouts.app')
 @section("order")
   <div class="form-group row" style="margin:10px ;">
                     <div class="col-sm-10" style="width: 500px;">

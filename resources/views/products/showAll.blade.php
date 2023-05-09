@@ -1,4 +1,4 @@
-@extends("layouts.main")
+@extends('layouts.app')
 @section("product")
    
 
@@ -28,8 +28,8 @@
                             <option value={{route("product.showCategories",1)}}>Бытовая химия</option>
                             <option value={{route("product.showCategories",2)}}>Ватно-бумажная продукция</option>
                             <option value={{route("product.showCategories",3)}}>Гигиена полости рта</option>
-                            <option value={{route("product.showCategories",4)}}>Товары для детской гигиены</option>
-                            <option value={{route("product.showCategories",5)}}>Товары для мужского бритья</option>
+                            <option value={{route("product.showCategories",4)}}>Детская гигиена</option>
+                            <option value={{route("product.showCategories",5)}}>Мужское бритье</option>
                         </select> 
                             </div> 
                 </div>

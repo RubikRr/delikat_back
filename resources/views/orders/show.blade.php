@@ -1,5 +1,5 @@
 @php use App\Http\Controllers\OrderProductController; @endphp
-@extends("layouts.main")
+@extends('layouts.app')
 
 
 @section("order")

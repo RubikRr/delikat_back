@@ -1,5 +1,5 @@
 @php use App\Http\Controllers\ProductCategoryController; @endphp
-@extends("layouts.main")
+@extends('layouts.app')
 @section("product")
     <div class="card" style="width: 18rem;">
         <img class="card-img-top" src="{{ Storage::url($product->image) }}" alt="{{$product->image}}">

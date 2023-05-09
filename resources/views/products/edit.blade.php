@@ -1,4 +1,4 @@
-@extends("layouts.main")
+@extends('layouts.app')
 @section("product")
     <div>
         <form enctype="multipart/form-data" action="{{route("product.update",$product->id)}}" method="post">

@@ -20,7 +20,7 @@ class MainController extends Controller
         (new ProductController)->CreateExm();
         (new OrderController)->CreateExm();
         (new OrderProductController)->CreateExm();
-        return redirect()->route("main.index");
+        return redirect()->route("home");
 
     }
     public function Clear()
@@ -30,12 +30,12 @@ class MainController extends Controller
         Artisan::call('view:clear');
         Artisan::call('route:clear');
         //Artisan::call('storage:link');
-        return redirect()->route("main.index");
+        return redirect()->route("home");
     }
 
     public function DropDB()
     {
         Artisan::call('migrate:fresh');
-        return redirect()->route("main.index");
+        return redirect()->route("home");
     }
 }

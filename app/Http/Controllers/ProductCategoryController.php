@@ -36,18 +36,17 @@ class ProductCategoryController extends Controller
                  'image'=>'/images/categories/PR.webp'
             ],
             [
-               'category'=>"Товары для детской гигиены",
+               'category'=>"Детская гигиена",
                 'image'=>'/images/categories/DG.jpg'
             ],
             [
-               'category'=>"Товары для мужского бриться",
+               'category'=>"Мужское бритье",
                 'image'=>'/images/categories/MB.webp'
             ]
         ];
         foreach ($examples as $example)
         {
             ProductCategory::create($example);
-
         }
     }
 }

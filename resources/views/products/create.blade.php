@@ -1,4 +1,4 @@
-@extends("layouts.main")
+@extends('layouts.app')
 @section("product")
     <form enctype="multipart/form-data" action="{{route("product.store")}}" method="post">
         @csrf
