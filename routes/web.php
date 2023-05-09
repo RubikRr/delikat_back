@@ -10,11 +10,14 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\ProductCategoryController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Auth\LoginController;
 
 
-//работают
+Route::get("/",[HomeController::class,"index"]);
+
 Route::controller(MainController::class)->group(function (){
-    Route::get('/','index')->name("main.index");
+    Route::get('/main','index')->name("main.index");
     Route::get('/create','CreateExamples');
     Route::get('/clear', "Clear");
     Route::get('/drop',"DropDB");
@@ -41,11 +44,6 @@ Route::controller(ProductController::class)->group(function (){
     Route::get("/products/showAll",'ShowAll')->name("product.showAll");
     Route::get("/products/showCategories/{index}",'ShowProductsCategories')->name("product.showCategories");
      Route::get("/products/getCategories/{index}",'GetProductsOnCategories')->name("product.getProductsOnCategories");
-});
-
-Route::get("/getLogo",function(){
-    return "/images/delikat_rebr.jpg";
-
 });
 
 
@@ -94,3 +92,11 @@ Route::controller(OrderProductController::class)->group(function (){
 //    Route::get("/products",function (){
 //        return ProductResource::collection(Product::all());
 //    })->name("product.index");
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
