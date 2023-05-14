@@ -6,17 +6,18 @@
 
         <div class="card" style="width: 18rem;">
             <div class="card-body">
-                <h5 class="card-title">Номер заказа:{{$order->id}}</h5>
-                <h6 class="card-subtitle mb-2 text-muted">Номер: {{$order->phone_number}}</h6>
-                <p class="card-text">Заказчик:{{$order->last_name}} {{$order->first_name}}    
-                    <br>Почта: {{$order->email}}
-                    <br>Улица: {{$order->street}}
-                    <br> Дом: {{$order->house}}
-                    <br> Корпус: {{$order->housing}}
-                    <br> Подъезд: {{$order->entrance}}
-                    <br> Квартира: {{$order->apartment}}
-                 </p>
+                <h5 class="card-title">Заказ номер: {{$order->id}}</h5>
             </div>
+             <ul class="list-group list-group-flush">
+                <li class="list-group-item">Номер: {{$order->phone_number}}</li>
+                <li class="list-group-item">Заказчик:{{$order->last_name}} {{$order->first_name}}</li>
+                <li class="list-group-item">Почта: {{$order->email}}</li>
+                <li class="list-group-item">Улица: {{$order->street}}</li>
+                <li class="list-group-item">Дом: {{$order->house}}</li>
+                <li class="list-group-item">Корпус: {{$order->housing}}</li>
+                <li class="list-group-item">Подъезд: {{$order->entrance}}</li>
+                <li class="list-group-item">Квартира: {{$order->apartment}}</li>
+            </ul>
         </div>
     <table class="table table-bordered table-hover table-responsive">
     <thead>

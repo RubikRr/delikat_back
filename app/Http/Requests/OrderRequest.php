@@ -32,6 +32,7 @@ class OrderRequest extends FormRequest
             'entrance'=>'Integer',
             'apartment'=>'Integer',
             'total'=>'decimal:0,99999999'
+            
         ];
     }
 }

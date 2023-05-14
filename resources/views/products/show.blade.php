@@ -5,11 +5,15 @@
         <img class="card-img-top" src="{{ Storage::url($product->image) }}" alt="{{$product->image}}">
         <div class="card-body h-100 text-center">
             <h5 class="card-title">{{$product->name}}</h5>
-            <p class="card-text">{{(new ProductCategoryController)->getCategory($product->category)}}</p>
-            <p class="card-text">Цена:{{$product->price}}</p>
-             <p class="card-text">Кол-во:{{$product->quantity}}</p>
-            <p class="card-text">{{$product->description}}</p>
-            <div style="display: flex;justify-content: space-around;">
+        </div>
+             <ul class="list-group list-group-flush">
+                <li class="list-group-item">{{(new ProductCategoryController)->getCategory($product->category)}}</li>
+                <li class="list-group-item">Цена:{{$product->price}}</li>
+                <li class="list-group-item">Кол-во:{{$product->quantity}}</li>
+                  <li class="list-group-item">{{$product->description}}</li>
+            </ul>
+            
+            <div style="display: flex;justify-content: space-around; margin-top:10px;">
           
                 <form action="{{route("product.edit",$product->id)}}" method="get">
                   <div>
@@ -31,5 +35,4 @@
                 </form>
             </div>
         </div>
-    </div>    
 @endsection

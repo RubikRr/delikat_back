@@ -82,50 +82,7 @@ class ProductController extends Controller
         $product->restore();
         return redirect()->route("product.showAll");
     }
-    public function CreateExm()
-    {
-        $examples=[
-            [
-                'name'=>'Фэри',
-
-                'image'=>'/images/products/thumbnail/fairy.jpg',
-                'quantity'=>10000,
-                "category"=>1,
-                'price'=>999999.99,
-                'description'=>"Крутой средство для мытья посуды"
-            ],
-            [
-                'name'=>'Порошок',
-                "category"=>1,
-                'image'=>'/images/products/thumbnail/poroshok.webp',
-                'quantity'=>10000,
-                'price'=>100.4,
-                'description'=>"Чистая одежда"
-
-            ],
-            [
-                'name'=>'Подгузники',
-                "category"=>4,
-                'image'=>'/images/products/thumbnail/pampers.jpg',
-                'quantity'=>10000,
-                'price'=>200.99,
-                'description'=>"Для милых детишек"
-            ],
-            [
-                'name'=>'Бритва',
-                "category"=>5,
-                'image'=>'/images/products/thumbnail/hydro_5_skin_3.jpg',
-                'quantity'=>10000,
-                'price'=>1000.99,
-                'description'=>"Джилет лучше для мужчины нет"
-            ]
-        ];
-        foreach ($examples as $example)
-        {
-            Product::create($example);
-
-        }
-    }
+    
 
     public function ShowAll(){
         $products=$this->index();
