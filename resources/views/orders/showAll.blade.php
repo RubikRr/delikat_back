@@ -3,29 +3,42 @@
 
 
 <div style="display: flex; justify-content:start; margin-bottom: 10px;">
-    
-                <div class="dropdown" style="margin-right:10px">
-                    <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">Дата</a>
+    <div class="dropdown" style="margin-right:10px">
+        <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">Дата</a>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <li><a class="dropdown-item"  href={{route("order.showAll")}}>Все заказы</a></li>
+            <li><a class="dropdown-item"  href={{route("orders.getDates",1)}}>Последний день</a></li>
+            <li><a class="dropdown-item"  href={{route("orders.getDates",2)}}>Последняя неделя</a></li>
+            <li><a class="dropdown-item"  href={{route("orders.getDates",3)}}>Последний месяц</a></li>
+            <li><a class="dropdown-item"  href={{route("orders.getDates",4)}}>Последний год</a></li>
 
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <li><a class="dropdown-item"  href={{route("order.showAll")}}>Все заказы</a></li>
-                        <li><a class="dropdown-item"  href={{route("orders.getDates",1)}}>Последний день</a></li>
-                        <li><a class="dropdown-item"  href={{route("orders.getDates",2)}}>Последняя неделя</a></li>
-                        <li><a class="dropdown-item"  href={{route("orders.getDates",3)}}>Последний месяц</a></li>
-                        <li><a class="dropdown-item"  href={{route("orders.getDates",4)}}>Последний год</a></li>
+        </ul>
+    </div>
+    <div style="margin-right: 10px;">   
+        <form method="GET" action="{{ route('order.statusConfirmed') }}">
+            @csrf
+            @foreach($orders as $order)
+                <input type="hidden" name="my_data[]" value={{$order->id}}>
+            @endforeach
+                       
+            <button class="btn btn-primary" type="submit">Подтверджден</button>
+        </form>
+    </div>
+    <div>   
+        <form method="GET" action="{{ route('order.statusNotConfirmed') }}">
+            @csrf
+            @foreach($orders as $order)
+                <input type="hidden" name="my_data[]" value={{$order->id}}>
+            @endforeach
+            <button class="btn btn-primary" type="submit">Не подтверджден</button>
+        </form>
+    </div>
 
-                    </ul>
-                </div>
 
-                <div class="dropdown">
-                    <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">Статус</a>
-
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <li><a class="dropdown-item"  href="#">Подтвержден</a></li>
-                        <li><a class="dropdown-item"  href="#">Не подтвержден</a></li>
-                    </ul>
-         </div>
 </div>
+                 
+                    
+
 
 <table class="table table-bordered table-hover table-responsive">
     <thead>

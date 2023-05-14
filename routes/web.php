@@ -57,7 +57,8 @@ Route::controller(ProductCategoryController::class)->group(function (){
 
             Route::get("orders/showAll","showAll")->name('order.showAll')->middleware("admin");
             Route::delete('/orders/{order}','destroy')->name("order.delete")->withTrashed();
-           // Route::get("orders/byStatus/{orders}","status")->name("order.status");
+            Route::get("orders/statusConfirmed","statuConfirmed")->name("order.statusConfirmed");
+            Route::get("orders/statusNotConfirmed","statusNotConfirmed")->name("order.statusNotConfirmed");
             
 
             Route::patch('/orders/{order}','update')->name("order.update");

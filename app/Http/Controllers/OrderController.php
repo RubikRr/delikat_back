@@ -67,14 +67,58 @@ class OrderController extends Controller
     }
     public function showAll()
     {
-        $orders=$this->index();
+        $orders=$this->index()->sortByDesc('created_at');
         $sum=$this->GetSumm($orders);
         return view("orders.showAll",compact("orders","sum"));
     }
-   /* public function status(Order[] $orders)
+    public function statusNotConfirmed(Request $request)
     {
-        dd($orders);
-    }*/
+
+        $orders=Order::where('confirmation','=',0)->get()->sortByDesc('created_at');
+        $sum=$this->GetSumm($orders);
+        return view("orders.showAll",compact("orders","sum"));
+        /* $ordersId = $request->input('my_data');
+        
+         $orders=array();
+         if (is_null($ordersId)){
+                $orders=$this->index();
+                $sum=$this->GetSumm($orders);
+                return view("orders.showAll",compact("orders","sum"));
+         }
+         foreach ($ordersId as $orderId) {
+            $order=Order::find($orderId);
+            if($order->confirmation ==0){
+                array_push($orders, $order);
+            }
+                             
+            
+         }
+         $sum=$this->GetSumm($orders);
+         return view("orders.showAll",compact("orders","sum"));*/
+    }
+     public function statuConfirmed(Request $request)
+    {
+        $orders=Order::where('confirmation','=',1)->get()->sortByDesc('created_at');
+        $sum=$this->GetSumm($orders);
+        return view("orders.showAll",compact("orders","sum"));
+        /* $ordersId = $request->input('my_data');
+         $orders=array();
+         if (is_null($ordersId)){
+                $orders=$this->index();
+                $sum=$this->GetSumm($orders);
+                return view("orders.showAll",compact("orders","sum"));
+         }
+         foreach ($ordersId as $orderId) {
+            $order=Order::find($orderId);
+            if($order->confirmation ==1){
+                array_push($orders, $order);
+            }
+                             
+            
+         }
+         $sum=$this->GetSumm($orders);
+         return view("orders.showAll",compact("orders","sum"));*/
+    }
     public function DecreaseQuantityProducts(Order $order)
     {
         if ($order['confirmation'] == 1) {
@@ -108,22 +152,22 @@ class OrderController extends Controller
          
                     switch ($index) {
                 case 1:
-                    $orders=Order::whereDate('created_at', Carbon::today()->toDateString())->get();
+                    $orders=Order::whereDate('created_at', Carbon::today()->toDateString())->get()->sortByDesc('created_at');
                      $sum=$this->GetSumm($orders);
                     return view("orders.showAll",compact("orders","sum"));
                     break;
                 case 2:
-                    $orders=Order::whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->get();;
+                    $orders=Order::whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->get()->sortByDesc('created_at');
                      $sum=$this->GetSumm($orders);
                     return view("orders.showAll",compact("orders","sum"));
                     break;
                 case 3:
-                    $orders=Order::whereBetween('created_at', [Carbon::now()->startOfMonth(), Carbon::now()->endOfMonth()])->get();
+                    $orders=Order::whereBetween('created_at', [Carbon::now()->startOfMonth(), Carbon::now()->endOfMonth()])->get()->sortByDesc('created_at');
                      $sum=$this->GetSumm($orders);
-                    return view("orders.showAll",compact("orders","sum"));
+                    return view("orders.showAll",compact("orders","sum"))->sortByDesc('created_at');
                     break;
                 case 4:
-                    $orders=Order::whereYear('created_at', Carbon::today()->year)->get();
+                    $orders=Order::whereYear('created_at', Carbon::today()->year)->get()->sortByDesc('created_at');
                     $sum=$this->GetSumm($orders);
                     return view("orders.showAll",compact("orders","sum"));
                     break;
