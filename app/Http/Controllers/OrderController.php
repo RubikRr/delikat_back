@@ -71,7 +71,10 @@ class OrderController extends Controller
         $sum=$this->GetSumm($orders);
         return view("orders.showAll",compact("orders","sum"));
     }
-
+   /* public function status(Order[] $orders)
+    {
+        dd($orders);
+    }*/
     public function DecreaseQuantityProducts(Order $order)
     {
         if ($order['confirmation'] == 1) {

@@ -2,12 +2,10 @@
 @section("order")
 
 
-
-
-   <div class="form-group row" style="margin:10px ;">
-        <div class="col-sm-10" style="width: 500px;">
-                <div class="dropdown">
-                    <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">Фильтр</a>
+<div style="display: flex; justify-content:start; margin-bottom: 10px;">
+    
+                <div class="dropdown" style="margin-right:10px">
+                    <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">Дата</a>
 
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                         <li><a class="dropdown-item"  href={{route("order.showAll")}}>Все заказы</a></li>
@@ -15,19 +13,20 @@
                         <li><a class="dropdown-item"  href={{route("orders.getDates",2)}}>Последняя неделя</a></li>
                         <li><a class="dropdown-item"  href={{route("orders.getDates",3)}}>Последний месяц</a></li>
                         <li><a class="dropdown-item"  href={{route("orders.getDates",4)}}>Последний год</a></li>
+
                     </ul>
                 </div>
-                 
 
-                                <!--<div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                <div class="dropdown">
+                    <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">Статус</a>
 
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
-                                    </label>
-                                </div>-->
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <li><a class="dropdown-item"  href="#">Подтвержден</a></li>
+                        <li><a class="dropdown-item"  href="#">Не подтвержден</a></li>
+                    </ul>
          </div>
-    </div>
+</div>
+
 <table class="table table-bordered table-hover table-responsive">
     <thead>
         <tr>

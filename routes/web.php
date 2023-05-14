@@ -17,7 +17,7 @@ use App\Http\Controllers\Auth\LoginController;
 //Route::middleware('admin')->group(function (){
     Route::prefix('admin')->group(function (){
         Route::controller(MainController::class)->group(function (){
-            Route::get('/main','index')->name("main.index");
+            //Route::get('/main','index')->name("main.index");
             Route::get('/create','CreateExamples');;
             Route::get('/clear', "Clear");
             Route::get('/drop',"DropDB");
@@ -26,9 +26,6 @@ use App\Http\Controllers\Auth\LoginController;
     });
 //});
 
-Route::get("/test",function(){
-    return view("layouts/test");
-});
 Route::controller(ProductCategoryController::class)->group(function (){
     Route::get("/productCategories","index")->name("category.index");
 });
@@ -46,7 +43,7 @@ Route::controller(ProductCategoryController::class)->group(function (){
 
         Route::get('/products/showFields/{product}','showFields')->name("product.showFields");
         Route::get('/products/restore/{product}','restore')->withTrashed();
-        Route::get("/products/showAll",'ShowAll')->name("product.showAll"); 
+        Route::get("/products/showAll",'ShowAll')->name("product.showAll")->middleware("admin"); 
         Route::get("/products/showCategories/{index}",'ShowProductsCategories')->name("product.showCategories");
          Route::get("/products/getCategories/{index}",'GetProductsOnCategories')->name("product.getProductsOnCategories");
     });
@@ -58,9 +55,9 @@ Route::controller(ProductCategoryController::class)->group(function (){
             Route::get("orders/show/{order}","show")->name('order.show');
             Route::post("orders","store")->name("order.store");
 
-            Route::get("orders/showAll","showAll")->name('order.showAll');
+            Route::get("orders/showAll","showAll")->name('order.showAll')->middleware("admin");
             Route::delete('/orders/{order}','destroy')->name("order.delete")->withTrashed();
-
+           // Route::get("orders/byStatus/{orders}","status")->name("order.status");
             
 
             Route::patch('/orders/{order}','update')->name("order.update");
